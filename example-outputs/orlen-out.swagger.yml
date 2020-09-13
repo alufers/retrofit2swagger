@@ -1,0 +1,1820 @@
+openapi: "3.0.0"
+info:
+  title: "Orlen Pay api"
+  description: "Extracted from retrofit"
+  version: "1.0.0"
+paths:
+  "/v1/users/{user}/media/recent/":
+    "get":
+      summary: "InstagramApi.getFeed"
+      parameters:
+      - name: "user"
+        in: "path"
+        description: "InstagramApi.getFeed.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "access_token"
+        in: "query"
+        description: "InstagramApi.getFeed.str2"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InstagramResponse"
+          description: "Response body type was declared as `Observable<InstagramResponse>`"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.InstagramApi"
+  "/maps/api/directions/json":
+    "get":
+      summary: "GoogleDirectionsApi.getDirections"
+      parameters:
+      - name: "origin"
+        in: "query"
+        description: "GoogleDirectionsApi.getDirections.str"
+        schema:
+          type: "string"
+      - name: "destination"
+        in: "query"
+        description: "GoogleDirectionsApi.getDirections.str2"
+        schema:
+          type: "string"
+      - name: "alternatives"
+        in: "query"
+        description: "GoogleDirectionsApi.getDirections.z"
+        schema:
+          type: "boolean"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GoogleDirectionsResponse"
+          description: "Response body type was declared as `Observable<GoogleDirectionsResponse>`"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.GoogleDirectionsApi"
+  "/CEIDG.DataStore/services/DataStoreProvider201901.svc":
+    "post":
+      summary: "CeidgApi.findByTaxpayersIdentificationNumber"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "text/xml"
+      - name: "SOAPAction"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "http://tempuri.org/IDataStoreProvider201901/GetMigrationData201901"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FindByTaxpayerIdResponseEnvelope"
+          description: "Response body type was declared as `Observable<FindByTaxpayerIdResponseEnvelope>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FindByTaxpayerIdRequestEnvelope"
+      servers:
+      - url: "https://datastore.ceidg.gov.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.CeidgApi"
+  "/Services/Promotions/getNews/{locale}":
+    "get":
+      summary: "OrlenApi.getAdvertisements"
+      parameters:
+      - name: "locale"
+        in: "path"
+        description: "OrlenApi.getAdvertisements.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  "Response":
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Advertisement"
+                  "Status":
+                    $ref: "#/components/schemas/Status"
+          description: "Response body type was declared as `Observable<OrlenApiResponse<List<Advertisement>>>`"
+      servers:
+      - url: "https://om.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenApi"
+  "/Services/Promotions/getCoupons/{locale}":
+    "get":
+      summary: "OrlenApi.getCoupons"
+      parameters:
+      - name: "locale"
+        in: "path"
+        description: "OrlenApi.getCoupons.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  "Response":
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/Coupon"
+                  "Status":
+                    $ref: "#/components/schemas/Status"
+          description: "Response body type was declared as `Observable<OrlenApiResponse<List<Coupon>>>`"
+      servers:
+      - url: "https://om.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenApi"
+  "/Services/GasStations/getGasStations/{locale}":
+    "get":
+      summary: "OrlenApi.getGasStations"
+      parameters:
+      - name: "locale"
+        in: "path"
+        description: "OrlenApi.getGasStations.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  "Response":
+                    type: "array"
+                    items:
+                      $ref: "#/components/schemas/GasStation"
+                  "Status":
+                    $ref: "#/components/schemas/Status"
+          description: "Response body type was declared as `Observable<OrlenApiResponse<List<GasStation>>>`"
+      servers:
+      - url: "https://om.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenApi"
+  "/client/v3/nbcard/add":
+    "post":
+      summary: "OrlenPayApi.addNonBankCard"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.addNonBankCard.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/begin/fuel":
+    "post":
+      summary: "OrlenPayApi.beginFuelPayment"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.beginFuelPayment.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/begin/nonfuel":
+    "post":
+      summary: "OrlenPayApi.beginNonFuelPayment"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.beginNonFuelPayment.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/key/v3/change":
+    "post":
+      summary: "OrlenPayApi.changeKey"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.changeKey.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/status":
+    "post":
+      summary: "OrlenPayApi.clientStatus"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.clientStatus.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/commit":
+    "post":
+      summary: "OrlenPayApi.commitPayment"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.commitPayment.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/app/v1/register/complete":
+    "post":
+      summary: "OrlenPayApi.completeCreateSession"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.completeCreateSession.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/complete":
+    "post":
+      summary: "OrlenPayApi.completePayment"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.completePayment.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/pin/change/complete":
+    "post":
+      summary: "OrlenPayApi.completePinChange"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.completePinChange.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/nbcard/delete":
+    "delete":
+      summary: "OrlenPayApi.deleteNonBankCard"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.deleteNonBankCard.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/card/delete":
+    "delete":
+      summary: "OrlenPayApi.deletePaymentCard"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.deletePaymentCard.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/data/details":
+    "post":
+      summary: "OrlenPayApi.getAccountData"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getAccountData.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/approval/v2/list":
+    "get":
+      summary: "OrlenPayApi.getConsentList"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  "result":
+                    $ref: "#/components/schemas/ConsentList"
+                  "status":
+                    $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<OrlenPayApiResponse<ConsentList>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/text/v1/details?id=opay_licenses_android":
+    "get":
+      summary: "OrlenPayApi.getLicenses"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  "result":
+                    $ref: "#/components/schemas/Licenses"
+                  "status":
+                    $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<OrlenPayApiResponse<Licenses>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/account/details":
+    "post":
+      summary: "OrlenPayApi.getLoginData"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getLoginData.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/nbcard/list":
+    "post":
+      summary: "OrlenPayApi.getNonBankCardList"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getNonBankCardList.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/card/list":
+    "post":
+      summary: "OrlenPayApi.getPaymentCardList"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getPaymentCardList.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/card/register/status":
+    "post":
+      summary: "OrlenPayApi.getPaymentCardRegistrationStatus"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getPaymentCardRegistrationStatus.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/list":
+    "post":
+      summary: "OrlenPayApi.getPaymentTransactionList"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getPaymentTransactionList.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/pricelist":
+    "post":
+      summary: "OrlenPayApi.getPricelist"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getPricelist.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/text/v1/details?id=opay_regulations":
+    "get":
+      summary: "OrlenPayApi.getTermsOfUse"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  "result":
+                    $ref: "#/components/schemas/TermsOfUse"
+                  "status":
+                    $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<OrlenPayApiResponse<TermsOfUse>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/approval/list":
+    "post":
+      summary: "OrlenPayApi.getUserConsentList"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getUserConsentList.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/vehicle/list":
+    "post":
+      summary: "OrlenPayApi.getVehicleList"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.getVehicleList.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/app/v1/register/init":
+    "post":
+      summary: "OrlenPayApi.initCreateSession"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.initCreateSession.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/init":
+    "post":
+      summary: "OrlenPayApi.initPayment"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.initPayment.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/pin/change/init":
+    "post":
+      summary: "OrlenPayApi.initPinChange"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.initPinChange.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/card/register/init":
+    "post":
+      summary: "OrlenPayApi.initRegisterPaymentCard"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.initRegisterPaymentCard.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v1/pin/reset/init":
+    "post":
+      summary: "OrlenPayApi.initResetPin"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.initResetPin.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/login":
+    "post":
+      summary: "OrlenPayApi.login"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.login.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/redeem":
+    "post":
+      summary: "OrlenPayApi.markProductAsUsed"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.markProductAsUsed.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/data/modify/company":
+    "post":
+      summary: "OrlenPayApi.modifyCompanyAccount"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.modifyCompanyAccount.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/account/modify":
+    "post":
+      summary: "OrlenPayApi.modifyLoginData"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.modifyLoginData.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/card/modify":
+    "post":
+      summary: "OrlenPayApi.modifyPaymentCard"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.modifyPaymentCard.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/data/modify/person":
+    "post":
+      summary: "OrlenPayApi.modifyPersonAccount"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.modifyPersonAccount.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/approval/accept":
+    "post":
+      summary: "OrlenPayApi.modifyUserConsentList"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.modifyUserConsentList.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/vehicle/list/modify":
+    "post":
+      summary: "OrlenPayApi.modifyVehicleList"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.modifyVehicleList.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/rollback":
+    "post":
+      summary: "OrlenPayApi.paymentRollback"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.paymentRollback.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/status":
+    "post":
+      summary: "OrlenPayApi.paymentStatus"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.paymentStatus.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/register/company":
+    "post":
+      summary: "OrlenPayApi.registerCompany"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.registerCompany.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/register/person":
+    "post":
+      summary: "OrlenPayApi.registerPerson"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.registerPerson.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Observable<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/payment/v3/invoice/resend":
+    "post":
+      summary: "OrlenPayApi.sendInvoice"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.sendInvoice.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+  "/client/v3/nbcard/check":
+    "post":
+      summary: "OrlenPayApi.validateNonBankCard"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Authorization"
+        in: "header"
+        description: "OrlenPayApi.validateNonBankCard.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrlenPayResponseStatus"
+          description: "Response body type was declared as `Single<Response<OrlenPayResponseStatus>>`"
+      servers:
+      - url: "https://opayws.orlen.pl"
+      x-retrofit-interface: "p021pl.orlenmobile25.repository.server.OrlenPayApi"
+components:
+  schemas:
+    "InstagramResponse":
+      type: "object"
+      properties:
+        "data":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Data"
+        "meta":
+          $ref: "#/components/schemas/p021pl.orlenmobile25.repository.server.response.InstagramResponse.Status"
+        "pagination":
+          $ref: "#/components/schemas/Pagination"
+    "GoogleDirectionsResponse":
+      type: "object"
+      properties:
+        "routes":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Route"
+        "status":
+          $ref: "#/components/schemas/p021pl.orlenmobile25.repository.server.response.GoogleDirectionsResponse.Status"
+    "FindByTaxpayerIdRequestEnvelope":
+      type: "object"
+      properties:
+        "body":
+          $ref: "#/components/schemas/FindByTaxpayerIdRequestBody"
+    "FindByTaxpayerIdResponseEnvelope":
+      type: "object"
+      properties:
+        "body":
+          $ref: "#/components/schemas/FindByTaxpayerIdResponseBody"
+    "Advertisement":
+      allOf:
+      - $ref: "#/components/schemas/RealmObject"
+      - type: "object"
+        properties:
+          "ImageUrl":
+            type: "string"
+          "Order":
+            type: "integer"
+          "RedirectUrl":
+            type: "string"
+    "Status":
+      type: "object"
+      properties:
+        "Code":
+          type: "integer"
+        "Message":
+          type: "string"
+    "Coupon":
+      allOf:
+      - $ref: "#/components/schemas/RealmObject"
+      - type: "object"
+        properties:
+          "Coupon":
+            type: "string"
+          "DateDescription":
+            type: "string"
+          "Description":
+            type: "string"
+          "CouponId":
+            type: "integer"
+          "Name":
+            type: "string"
+          "Order":
+            type: "integer"
+          "CouponImage":
+            type: "string"
+          "CouponVerticalImage":
+            type: "string"
+    "GasStation":
+      type: "object"
+      properties:
+        "BrandImage":
+          type: "string"
+        "BrandName":
+          type: "string"
+        "BrandTypeId":
+          type: "integer"
+        "City":
+          type: "string"
+        "Country":
+          type: "string"
+        "Fax":
+          type: "string"
+        "Id":
+          type: "integer"
+        "Latitude":
+          type: "number"
+        "Longitude":
+          type: "number"
+        "Mobile":
+          type: "string"
+        "OpeningHours":
+          type: "string"
+        "Phone":
+          type: "string"
+        "PostalCode":
+          type: "string"
+        "Services":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/GasStationService"
+        "StationNumber":
+          type: "integer"
+        "StreetAddress":
+          type: "string"
+        "StreetNumber":
+          type: "string"
+        "Tags":
+          type: "array"
+          items:
+            type: "string"
+    "OrlenPayResponseStatus":
+      type: "object"
+      properties:
+        "errcode":
+          type: "integer"
+        "iat":
+          type: "string"
+        "iss":
+          type: "string"
+        "errdesc":
+          type: "string"
+    "ConsentList":
+      type: "object"
+      properties:
+        "aplist":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Consent"
+    "Licenses":
+      type: "object"
+      properties:
+        "txt":
+          type: "string"
+        "txtver":
+          type: "string"
+    "TermsOfUse":
+      type: "object"
+      properties:
+        "txt":
+          type: "string"
+        "txtver":
+          type: "string"
+    "Data":
+      type: "object"
+      properties:
+        "f1383id":
+          type: "string"
+        "images":
+          $ref: "#/components/schemas/Image"
+    "p021pl.orlenmobile25.repository.server.response.InstagramResponse.Status":
+      type: "object"
+      properties:
+        "code":
+          type: "integer"
+        "error_message":
+          type: "string"
+        "error_type":
+          type: "string"
+    "Pagination":
+      type: "object"
+      properties:
+        "next_max_id":
+          type: "string"
+        "next_url":
+          type: "string"
+    "Route":
+      type: "object"
+      properties:
+        "bounds":
+          $ref: "#/components/schemas/Bounds"
+        "polylinePoints":
+          type: "string"
+    "p021pl.orlenmobile25.repository.server.response.GoogleDirectionsResponse.Status":
+      type: "object"
+      properties:
+        "status":
+          type: "string"
+    "FindByTaxpayerIdRequestBody":
+      type: "object"
+      properties:
+        "getMigrationData201901":
+          $ref: "#/components/schemas/GetMigrationData201901Request"
+    "FindByTaxpayerIdResponseBody":
+      type: "object"
+      properties:
+        "migrationData201901Response":
+          $ref: "#/components/schemas/GetMigrationData201901Response"
+    "RealmObject":
+      type: "object"
+    "GasStationService":
+      type: "object"
+      properties:
+        "Id":
+          type: "integer"
+        "Name":
+          type: "string"
+    "Consent":
+      type: "object"
+      properties:
+        "apid":
+          type: "string"
+        "apobl":
+          type: "boolean"
+        "aptxt":
+          type: "string"
+        "apver":
+          type: "integer"
+    "Image":
+      type: "object"
+      properties:
+        "low_resolution":
+          $ref: "#/components/schemas/ImageData"
+        "standard_resolution":
+          $ref: "#/components/schemas/ImageData"
+        "thumbnail":
+          $ref: "#/components/schemas/ImageData"
+    "Bounds":
+      type: "object"
+      properties:
+        "northeast":
+          $ref: "#/components/schemas/LatLng"
+        "southwest":
+          $ref: "#/components/schemas/LatLng"
+    "GetMigrationData201901Request":
+      type: "object"
+      properties:
+        "authToken":
+          type: "string"
+        "taxpayerId":
+          $ref: "#/components/schemas/TaxpayerId"
+    "GetMigrationData201901Response":
+      type: "object"
+      properties:
+        "getMigrationData201901Result":
+          type: "string"
+    "ImageData":
+      type: "object"
+      properties:
+        "height":
+          type: "integer"
+        "url":
+          type: "string"
+        "width":
+          type: "integer"
+    "LatLng":
+      allOf:
+      - $ref: "#/components/schemas/AbstractSafeParcelable"
+      - type: "object"
+        properties:
+          "latitude":
+            type: "number"
+          "longitude":
+            type: "number"
+    "TaxpayerId":
+      type: "object"
+      properties:
+        "value":
+          type: "string"
+    "AbstractSafeParcelable":
+      type: "object"

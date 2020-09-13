@@ -1,0 +1,2862 @@
+openapi: "3.0.0"
+info:
+  title: "Extracted from retrofit"
+  description: "ddd"
+  version: "1.0.0"
+paths:
+  "/auth/oauth/revoke_token":
+    "post":
+      summary: "TokenRevokeService.revoke"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/p009j.p010a.p979q1.p1021w0.TokenToRevoke"
+  "/notifications/devices/register":
+    "post":
+      summary: "NotificationsFireService.addDevice"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json; charset=utf-8"
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeregistrationToken"
+          description: "Response body type was declared as `Single<DeregistrationToken>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Device"
+  "/notifications/devices/deregister":
+    "post":
+      summary: "NotificationsFireService.removeDevice"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json; charset=utf-8"
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeregistrationToken"
+  "/notification-badges":
+    "get":
+      summary: "NotificationBadgesService.getNotificationBadges"
+      parameters:
+      - name: "Content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "origin"
+        in: "query"
+        description: "NotificationBadgesService.getNotificationBadges.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestNotificationBadges"
+          description: "Response body type was declared as `Single<RestNotificationBadges>`"
+  "/auth/oauth/token":
+    "post":
+      summary: "TokenInterface.resendCode"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        description: "TokenInterface.resendCode.str"
+        schema:
+          type: "string"
+      - name: "grant_type"
+        in: "query"
+        description: "TokenInterface.resendCode.str2"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TokenResult"
+          description: "Response body type was declared as `Call<TokenResult>`"
+  "/contractService/{paymentId}/summary":
+    "get":
+      summary: "CreditContractService.getCreditPlanSummary"
+      parameters:
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "paymentId"
+        in: "path"
+        description: "CreditContractService.getCreditPlanSummary.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreditPlanSummary"
+          description: "Response body type was declared as `Single<CreditPlanSummary>`"
+  "/{endpoint}":
+    "post":
+      summary: "TrackerService.track"
+      parameters:
+      - name: "endpoint"
+        in: "path"
+        description: "TrackerService.track.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `Call<ResponseBody>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Batch"
+  "/social/facebook/connections/connect-accounts-commands/{commandId}":
+    "put":
+      summary: "FacebookLoginService.connectAccount"
+      parameters:
+      - name: "Content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "FacebookLoginService.connectAccount.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Unit"
+          description: "Response body type was declared as `Single<Response<Unit>>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountConnectionBody"
+  "/social/facebook/signup/create-account-commands/{commandId}":
+    "put":
+      summary: "FacebookLoginService.registerAccount"
+      parameters:
+      - name: "Content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "FacebookLoginService.registerAccount.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Unit"
+          description: "Response body type was declared as `Single<Response<Unit>>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountCreationBody"
+  "/social/facebook/connections/verify-commands/{commandId}":
+    "put":
+      summary: "FacebookLoginService.verifyAccount"
+      parameters:
+      - name: "Content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "FacebookLoginService.verifyAccount.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountVerificationResponse"
+          description: "Response body type was declared as `Single<Response<AccountVerificationResponse>>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountVerificationBody"
+  "/social/google/connections/connect-accounts-commands/{commandId}":
+    "put":
+      summary: "GoogleLoginService.connectAccount"
+      parameters:
+      - name: "Content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "GoogleLoginService.connectAccount.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Unit"
+          description: "Response body type was declared as `Single<Response<Unit>>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountConnectionBody"
+  "/social/google/signup/create-account-commands/{commandId}":
+    "put":
+      summary: "GoogleLoginService.registerAccount"
+      parameters:
+      - name: "Content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "GoogleLoginService.registerAccount.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Unit"
+          description: "Response body type was declared as `Single<Response<Unit>>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountCreationBody"
+  "/social/google/connections/verify-commands/{commandId}":
+    "put":
+      summary: "GoogleLoginService.verifyAccount"
+      parameters:
+      - name: "Content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.user.login.social-login.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "GoogleLoginService.verifyAccount.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountVerificationResponse"
+          description: "Response body type was declared as `Single<Response<AccountVerificationResponse>>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountVerificationBody"
+  "/consents/{consentId}":
+    "get":
+      summary: "ConsentService.getConsent"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v2+json"
+      - name: "consentId"
+        in: "path"
+        description: "ConsentService.getConsent.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConsentResponse"
+          description: "Response body type was declared as `Single<ConsentResponse>`"
+  "/verificationService/smsVerification/payment/{paymentId}":
+    "put":
+      summary: "SmsVerificationService.putNewSmsVerification"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "Accept-Language"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "pl"
+      - name: "paymentId"
+        in: "path"
+        description: "SmsVerificationService.putNewSmsVerification.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestSmsVerification"
+          description: "Response body type was declared as `Single<RestSmsVerification>`"
+  "/verificationService/smsVerification/payment/{paymentId}/resend":
+    "post":
+      summary: "SmsVerificationService.sendNewSmsVerificationCode"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "Accept-Language"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "pl"
+      - name: "paymentId"
+        in: "path"
+        description: "SmsVerificationService.sendNewSmsVerificationCode.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+  "/verificationService/smsVerification/payment/{paymentId}/verify":
+    "post":
+      summary: "SmsVerificationService.sendSmsVerificationCode"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "Accept-Language"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "pl"
+      - name: "paymentId"
+        in: "path"
+        description: "SmsVerificationService.sendSmsVerificationCode.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RestSmsVerificationCode"
+  "/productsService/{paymentId}/creditOffer":
+    "put":
+      summary: "CreditProductService.getAvailableCreditPlans"
+      parameters:
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "X-Attempt-Reference"
+        in: "header"
+        description: "CreditProductService.getAvailableCreditPlans.str"
+        schema:
+          type: "string"
+      - name: "paymentId"
+        in: "path"
+        description: "CreditProductService.getAvailableCreditPlans.str2"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreditProducts"
+          description: "Response body type was declared as `Single<CreditProducts>`"
+  "/suggestions/recommendations":
+    "get":
+      summary: "SuggestionsService.getSuggestions"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "scenarioId"
+        in: "query"
+        description: "SuggestionsService.getSuggestions.str"
+        schema:
+          type: "string"
+      - name: "sellerId"
+        in: "query"
+        description: "SuggestionsService.getSuggestions.str2"
+        schema:
+          type: "string"
+      - name: "cartId"
+        in: "query"
+        description: "SuggestionsService.getSuggestions.str3"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseSuggestions"
+          description: "Response body type was declared as `Single<ResponseSuggestions>`"
+  "/suggestions/sellers":
+    "get":
+      summary: "SellerSuggestionService.getSuggestions"
+      parameters:
+      - name: "phrase"
+        in: "query"
+        description: "SellerSuggestionService.getSuggestions.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SellerSuggestionsResponse"
+          description: "Response body type was declared as `Single<SellerSuggestionsResponse>`"
+  "/mobile_api/photos":
+    "post":
+      summary: "PhotoUploadService.uploadPhoto"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestPhotoResponse"
+          description: "Response body type was declared as `Single<RestPhotoResponse>`"
+  "/user-avatars/my-avatar":
+    "delete":
+      summary: "AvatarService.deleteMyAvatar"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+  "/user-avatars/store-avatar-commands/{commandId}":
+    "put":
+      summary: "AvatarService.storeAvatar"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "AvatarService.storeAvatar.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StoreAvatarResponse"
+          description: "Response body type was declared as `Single<StoreAvatarResponse>`"
+  "/shared-links/offer-link":
+    "post":
+      summary: "CoopRetrofitService.getSharedLink"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json;charset=UTF-8"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SharedLinkResponseData"
+          description: "Response body type was declared as `Single<SharedLinkResponseData>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SharedLinkRequestData"
+  "/visual-search-facade/visual-search-commands/{commandId}":
+    "put":
+      summary: "SearchService.visualSearch"
+      parameters:
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "SearchService.visualSearch.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "left"
+        in: "query"
+        description: "SearchService.visualSearch.num"
+        schema:
+          type: "integer"
+      - name: "right"
+        in: "query"
+        description: "SearchService.visualSearch.num2"
+        schema:
+          type: "integer"
+      - name: "top"
+        in: "query"
+        description: "SearchService.visualSearch.num3"
+        schema:
+          type: "integer"
+      - name: "bottom"
+        in: "query"
+        description: "SearchService.visualSearch.num4"
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `Object`"
+  "/visual-search-facade/visual-search-by-id-commands/{commandId}":
+    "put":
+      summary: "SearchService.visualSearchById"
+      parameters:
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "SearchService.visualSearchById.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `Object`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RestSearchId"
+  "/visual-search-facade/delete-visual-searches-commands/{commandId}":
+    "put":
+      summary: "HistoryService.deleteSearchHistoryByIds"
+      parameters:
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "commandId"
+        in: "path"
+        description: "HistoryService.deleteSearchHistoryByIds.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RestSearchIds"
+  "/visual-search-facade/searches":
+    "get":
+      summary: "HistoryService.getSearchHistory"
+      parameters:
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestSearches"
+          description: "Response body type was declared as `Single<RestSearches>`"
+  "/terms":
+    "get":
+      summary: "AllegroTermsService.getAllegroTerms"
+      parameters:
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AllegroTerms"
+          description: "Response body type was declared as `Single<AllegroTerms>`"
+  "/users":
+    "post":
+      summary: "SignupService.signupNewUser"
+      parameters:
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v2+json"
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v2+json"
+      - name: "Skycaptcha"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "Y2FwdGNoLXRva2VuLWhlYWRlci12YWx1ZQ"
+      - name: "dryRun"
+        in: "query"
+        description: "SignupService.signupNewUser.z"
+        schema:
+          type: "boolean"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `Object`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserData"
+    "get":
+      summary: "UserInterface.getUser"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v2+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetUserResponse"
+          description: "Response body type was declared as `Single<C11526k>`"
+  "/coop/whitelisted-users/{userId}/verify":
+    "get":
+      summary: "DashboardCoopRetrofitService.getDashboardCoopInfo"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "DashboardCoopRetrofitService.getDashboardCoopInfo.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardCoopResponse"
+          description: "Response body type was declared as `Single<DashboardCoopResponse>`"
+  "/watched/users/{userId}/queries/{queryId}":
+    "delete":
+      summary: "WatchedService.delete"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "WatchedService.delete.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "queryId"
+        in: "path"
+        description: "WatchedService.delete.str2"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+  "/watched/users/{userId}/queries":
+    "get":
+      summary: "WatchedService.getWatchedSearches"
+      parameters:
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "userId"
+        in: "path"
+        description: "WatchedService.getWatchedSearches.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WatchedSearches"
+          description: "Response body type was declared as `Observable<WatchedSearches>`"
+  "/watched/users/{userId}/queries/{queryId}/notifications-settings":
+    "put":
+      summary: "WatchedService.switchNotifications"
+      parameters:
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "userId"
+        in: "path"
+        description: "WatchedService.switchNotifications.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "queryId"
+        in: "path"
+        description: "WatchedService.switchNotifications.str2"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SwitchNotificationsRequest"
+  "/user-profiles/my-profile":
+    "get":
+      summary: "UserProfileService.getUserProfile"
+      parameters:
+      - name: "fragments"
+        in: "query"
+        description: "UserProfileService.getUserProfile.list"
+        schema:
+          type: "array"
+          items:
+            type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfileModels"
+          description: "Response body type was declared as `Single<C11535t>`"
+  "/freebox/header/subscription":
+    "get":
+      summary: "FreeboxService.getSmartSubscriptionSuspending"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `Object`"
+  "/creditPayments/paymentsSchedule":
+    "get":
+      summary: "RepaymentScheduleService.getPaymentsSchedule"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentsScheduleResponse"
+          description: "Response body type was declared as `Single<C12922d>`"
+  "/payments-status/{repaymentId}":
+    "get":
+      summary: "RepaymentService.getRepaymentStatus"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "repaymentId"
+        in: "path"
+        description: "RepaymentService.getRepaymentStatus.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentStatusResult"
+          description: "Response body type was declared as `Single<PaymentStatusResult>`"
+  "/paymentHandler/startRepayment":
+    "put":
+      summary: "RepaymentService.startRepayment"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StartRepaymentResponse"
+          description: "Response body type was declared as `Single<C13032e>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartRepaymentPayload"
+  "/creditPayments/{paymentId}/history":
+    "get":
+      summary: "PaymentDetailsService.getHistory"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "paymentId"
+        in: "path"
+        description: "PaymentDetailsService.getHistory.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentDetailsHistoryResponse"
+          description: "Response body type was declared as `Single<C12795e>`"
+  "/creditPayments/{paymentId}":
+    "get":
+      summary: "PaymentDetailsService.getPaymentDetails"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "paymentId"
+        in: "path"
+        description: "PaymentDetailsService.getPaymentDetails.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaymentDetailsResponse"
+          description: "Response body type was declared as `Single<C12806p>`"
+  "/postsales-eligibility":
+    "get":
+      summary: "DashboardService.getEligibility"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EligibilityResponse"
+          description: "Response body type was declared as `Single<EligibilityResponse>`"
+  "/creditPayments/history":
+    "get":
+      summary: "DashboardService.getHistory"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      - name: "offset"
+        in: "query"
+        description: "DashboardService.getHistory.i"
+        schema:
+          type: "integer"
+      - name: "limit"
+        in: "query"
+        description: "DashboardService.getHistory.i2"
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardHistoryResponse"
+          description: "Response body type was declared as `Single<C12883g>`"
+  "/creditPayments/upcomingPayments":
+    "get":
+      summary: "DashboardService.getUpcomingPayments"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardUpcomingPaymentsResponse"
+          description: "Response body type was declared as `Single<C12890n>`"
+  "/mobile-attentioner/actions/home-screen":
+    "get":
+      summary: "AttentionerService.getAttentioner"
+      parameters:
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestAttentioner"
+          description: "Response body type was declared as `Single<RestAttentioner>`"
+  "/inbox/messages":
+    "get":
+      summary: "InboxService.getMessages"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestInboxMessagesList"
+          description: "Response body type was declared as `Single<RestInboxMessagesList>`"
+  "/inbox/messages/{tinkerbellId}":
+    "delete":
+      summary: "InboxService.removeMessage"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "tinkerbellId"
+        in: "path"
+        description: "InboxService.removeMessage.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+  "/inbox/messages/group/{groupId}":
+    "delete":
+      summary: "InboxService.removeMessageGroup"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/json"
+      - name: "groupId"
+        in: "path"
+        description: "InboxService.removeMessageGroup.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+  "/inbox/events/clicked":
+    "post":
+      summary: "InboxService.setAsClicked"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v2+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v2+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RestInboxEventRequest"
+  "/inbox/events/displayed":
+    "post":
+      summary: "InboxService.setAsDisplayed"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v2+json"
+      - name: "Accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.public.v2+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RestInboxEventRequest"
+  "/preferences":
+    "get":
+      summary: "OneCookieService.getPreferences"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.internal.v1+json"
+      - name: "api-key"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "public"
+      - name: "name"
+        in: "query"
+        description: "OneCookieService.getPreferences.list"
+        schema:
+          type: "array"
+          items:
+            type: "string"
+      - name: "x-cmuid"
+        in: "header"
+        description: "OneCookieService.getPreferences.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OneCookiePreferences"
+          description: "Response body type was declared as `Single<OneCookiePreferences>`"
+    "post":
+      summary: "OneCookieService.updatePreferences"
+      parameters:
+      - name: "accept"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.internal.v1+json"
+      - name: "content-type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.internal.v1+json"
+      - name: "api-key"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "public"
+      - name: "x-cmuid"
+        in: "header"
+        description: "OneCookieService.updatePreferences.str"
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Completable"
+          description: "Response body type was declared as `Completable`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OneCookiePreferenceBody"
+  "/mobile/events":
+    "post":
+      summary: "TechEventsService.sendEvents"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/vnd.allegro.internal.v1+json"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `Call<Void>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TechEvent"
+components:
+  schemas:
+    "TokenToRevoke":
+      type: "object"
+    "Device":
+      type: "object"
+      properties:
+        "fcmToken":
+          type: "string"
+        "platform":
+          type: "string"
+        "variant":
+          type: "string"
+    "DeregistrationToken":
+      type: "object"
+      properties:
+        "deregistrationToken":
+          type: "string"
+    "Completable":
+      type: "object"
+    "RestNotificationBadges":
+      type: "object"
+      properties:
+        "balances":
+          type: "integer"
+        "bundles":
+          type: "integer"
+        "coins":
+          type: "integer"
+        "inboxes":
+          type: "integer"
+        "messageCenter":
+          type: "integer"
+        "reviews":
+          type: "integer"
+        "subscription":
+          type: "integer"
+        "total":
+          type: "integer"
+    "p009j.p010a.p979q1.p1021w0.TokenToRevoke":
+      type: "object"
+      properties:
+        "token":
+          type: "string"
+    "TokenResult":
+      type: "object"
+      properties:
+        "access_token":
+          type: "string"
+        "expires_in":
+          type: "integer"
+        "jti":
+          type: "string"
+        "refresh_token":
+          type: "string"
+        "scope":
+          type: "string"
+        "token_type":
+          type: "string"
+    "CreditPlanSummary":
+      type: "object"
+      properties:
+        "creditPlanType":
+          $ref: "#/components/schemas/CreditPlanType"
+        "firstInstallmentDate":
+          type: "string"
+          format: "date"
+        "installmentValue":
+          $ref: "#/components/schemas/MonetaryAmount"
+    "Batch":
+      type: "object"
+      properties:
+        "accountId":
+          type: "string"
+        "batchId":
+          type: "string"
+        "events":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/EventRow"
+        "sentAt":
+          type: "string"
+        "timeZone":
+          type: "string"
+        "userId":
+          type: "string"
+    "AccountConnectionBody":
+      type: "object"
+      properties:
+        "password":
+          type: "string"
+        "socialToken":
+          type: "string"
+    "Unit":
+      type: "object"
+    "AccountCreationBody":
+      type: "object"
+      properties:
+        "acceptedConsents":
+          type: "array"
+          items:
+            type: "string"
+        "birthDate":
+          type: "string"
+        "isOverEighteen":
+          type: "boolean"
+        "registrationCountryCode":
+          type: "string"
+        "socialToken":
+          type: "string"
+    "AccountVerificationBody":
+      type: "object"
+      properties:
+        "socialToken":
+          type: "string"
+    "AccountVerificationResponse":
+      type: "object"
+      properties:
+        "avatarUrl":
+          type: "string"
+        "email":
+          type: "string"
+        "name":
+          type: "string"
+        "socialConnectionStatus":
+          type: "string"
+    "ConsentResponse":
+      type: "object"
+      properties:
+        "description":
+          type: "string"
+        "label":
+          type: "string"
+    "RestSmsVerification":
+      type: "object"
+      properties:
+        "phoneNumber":
+          type: "string"
+    "RestSmsVerificationCode":
+      type: "object"
+      properties:
+        "code":
+          type: "string"
+    "CreditProducts":
+      type: "object"
+      properties:
+        "creditPlanDetails":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/AvailableCreditPlan"
+        "representativeExample":
+          type: "string"
+    "ResponseSuggestions":
+      type: "object"
+      properties:
+        "items":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Suggestion"
+    "SellerSuggestionsResponse":
+      type: "object"
+      properties:
+        "suggestions":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/SellerSuggestion"
+    "RestPhotoResponse":
+      type: "object"
+      properties:
+        "f40827id":
+          type: "string"
+        "imageUrl":
+          type: "string"
+    "StoreAvatarResponse":
+      type: "object"
+      properties:
+        "avatarUrl":
+          type: "string"
+    "SharedLinkRequestData":
+      type: "object"
+      properties:
+        "categoryId":
+          type: "string"
+        "offerId":
+          type: "string"
+        "offerUrl":
+          type: "string"
+        "userId":
+          type: "string"
+    "SharedLinkResponseData":
+      type: "object"
+      properties:
+        "sharedLink":
+          type: "string"
+    "RestSearchId":
+      type: "object"
+      properties:
+        "searchId":
+          type: "string"
+    "RestSearchIds":
+      type: "object"
+      properties:
+        "searchIds":
+          type: "array"
+          items:
+            type: "string"
+    "RestSearches":
+      type: "object"
+      properties:
+        "searches":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/RestSuggestion"
+    "AllegroTerms":
+      type: "object"
+      properties:
+        "f39158id":
+          type: "string"
+        "publishDate":
+          type: "string"
+        "termsChangesUrl":
+          type: "string"
+        "termsUrl":
+          type: "string"
+        "url":
+          type: "string"
+    "UserData":
+      type: "object"
+      properties:
+        "birthDate":
+          type: "string"
+        "consents":
+          $ref: "#/components/schemas/User"
+        "email":
+          type: "string"
+        "guestFromOrderProcess":
+          type: "boolean"
+        "juniorStatusConfirmed":
+          type: "boolean"
+        "password":
+          type: "string"
+        "platform":
+          type: "string"
+        "registrationCountryCode":
+          type: "string"
+    "DashboardCoopResponse":
+      type: "object"
+      properties:
+        "isCoopUser":
+          type: "boolean"
+        "panelLink":
+          type: "string"
+    "WatchedSearches":
+      type: "object"
+      properties:
+        "queries":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Query"
+    "SwitchNotificationsRequest":
+      type: "object"
+      properties:
+        "shouldSend":
+          type: "boolean"
+    "UserProfileModels":
+      type: "object"
+      properties:
+        "avatar":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11519d"
+        "coins":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11522g"
+        "smart":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11522g"
+        "tasks":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11532q"
+        "user":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11534s"
+        "welcome":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11536u"
+    "GetUserResponse":
+      type: "object"
+      properties:
+        "accounts":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.GetUserResponse"
+        "addresses":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11517b"
+        "contacts":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11525j"
+        "person":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11527l"
+    "SmartSubscription":
+      type: "object"
+      properties:
+        "buttonLabel":
+          type: "string"
+        "buttonUrl":
+          type: "string"
+        "message":
+          type: "string"
+        "status":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1421g2.p1424i.SmartSubscription"
+    "PaymentsScheduleResponse":
+      type: "object"
+      properties:
+        "purchases":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1513r.p1521c.p1523c.C12921c"
+    "PaymentStatusResult":
+      type: "object"
+      properties:
+        "contribution":
+          $ref: "#/components/schemas/p009j.p010a.p979q1.p1007s0.p1010f.PaymentStatusResult.C7240b"
+        "payment":
+          $ref: "#/components/schemas/p009j.p010a.p979q1.p1007s0.p1010f.PaymentStatusResult.C7241c"
+    "StartRepaymentPayload":
+      type: "object"
+      properties:
+        "installmentIds":
+          type: "array"
+          items:
+            type: "string"
+        "penaltyInterestIds":
+          type: "array"
+          items:
+            type: "string"
+    "StartRepaymentResponse":
+      type: "object"
+      properties:
+        "installments":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1525t.p1535c.p1536f.StartRepaymentResponse"
+        "penaltyInterest":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1525t.p1535c.p1536f.C13031d"
+        "repaymentId":
+          type: "string"
+    "PaymentDetailsHistoryResponse":
+      type: "object"
+      properties:
+        "events":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.PaymentDetailsHistoryResponse"
+    "PaymentDetailsResponse":
+      type: "object"
+      properties:
+        "closeDate":
+          $ref: "#/components/schemas/ZonedDateTime"
+        "creditDocuments":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12793b"
+        "currentInstallmentRemainingObligationAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "currentPlan":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.PaymentDetailsResponse"
+        "initialPlan":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.PaymentDetailsResponse"
+        "orderDetails":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12800j"
+        "overdueAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "overpaymentAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "paymentId":
+          type: "string"
+        "payments":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12803m"
+        "penaltyInterest":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12804n"
+        "repaidAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "repaidInstallmentsCount":
+          type: "integer"
+        "repaymentIban":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12805o"
+        "repaymentPercentage":
+          type: "integer"
+        "toBeRepaidInstallmentsAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "toBeRepaidInstallmentsCount":
+          type: "integer"
+        "totalAmountToBeRepaid":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "transactionAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "transactionDate":
+          type: "string"
+          format: "date-time"
+    "EligibilityResponse":
+      type: "object"
+      properties:
+        "state":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.EligibilityResponse.C12891a"
+    "DashboardHistoryResponse":
+      type: "object"
+      properties:
+        "transactions":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12884h"
+    "DashboardUpcomingPaymentsResponse":
+      type: "object"
+      properties:
+        "borrowingPower":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12881d"
+        "payments":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12886j"
+        "penaltyInterest":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12887k"
+        "totalAmountExpectedInCurrentPeriod":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "totalOverdueAmount":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12889m"
+        "totalUnpaidTransactionsCount":
+          type: "integer"
+    "RestAttentioner":
+      type: "object"
+      properties:
+        "backgroundColor":
+          type: "string"
+        "iconUrl":
+          type: "string"
+        "f30948id":
+          type: "string"
+        "label":
+          $ref: "#/components/schemas/RestAttentionerLabel"
+        "url":
+          type: "string"
+    "RestInboxMessagesList":
+      type: "object"
+      properties:
+        "messages":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/RestInboxMessageRaw"
+    "RestInboxEventRequest":
+      type: "object"
+      properties:
+        "tinkerbellIdEvents":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/RestInboxEvent"
+    "OneCookiePreferences":
+      type: "object"
+      properties:
+        "preferences":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/OneCookiePreference"
+    "OneCookiePreferenceBody":
+      type: "object"
+      properties:
+        "name":
+          type: "string"
+        "value":
+          type: "object"
+          additionalProperties: {}
+    "TechEvent":
+      type: "object"
+      properties:
+        "f26624a":
+          type: "string"
+        "f26625b":
+          type: "string"
+        "f26626c":
+          type: "string"
+        "f26627d":
+          type: "string"
+        "f26628e":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p812h.p815h.TechEvent"
+        "f26629f":
+          $ref: "#/components/schemas/Events"
+    "CreditPlanType":
+      type: "string"
+      enum:
+      - "PAY_LATER"
+      - "INSTALLMENTS"
+    "MonetaryAmount":
+      type: "object"
+      properties:
+        "amount":
+          type: "number"
+        "currency":
+          $ref: "#/components/schemas/java.util.Currency"
+    "EventRow":
+      type: "object"
+      properties:
+        "accountId":
+          type: "string"
+        "f26730id":
+          type: "integer"
+        "jsonEvent":
+          type: "string"
+    "AvailableCreditPlan":
+      type: "object"
+      properties:
+        "additionalRequirements":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1233d.p1244b.p1257n0.p1263d.p1264c.AvailableCreditPlan.C10649a"
+        "aprc":
+          type: "string"
+        "creditOfferId":
+          type: "string"
+        "creditPlanType":
+          $ref: "#/components/schemas/CreditPlanType"
+        "firstInstallmentDate":
+          type: "string"
+          format: "date"
+        "installmentValue":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "installmentsCount":
+          type: "integer"
+        "isEnabled":
+          type: "boolean"
+        "tenor":
+          $ref: "#/components/schemas/CreditPlanTenor"
+        "totalCreditCost":
+          $ref: "#/components/schemas/MonetaryAmount"
+    "Suggestion":
+      type: "object"
+      properties:
+        "freebox":
+          type: "boolean"
+        "gallery":
+          $ref: "#/components/schemas/Gallery"
+        "f33916id":
+          type: "string"
+        "name":
+          type: "string"
+        "sellingMode":
+          $ref: "#/components/schemas/SellingMode"
+        "url":
+          type: "string"
+    "SellerSuggestion":
+      type: "object"
+      properties:
+        "description":
+          type: "string"
+        "name":
+          type: "string"
+    "RestSuggestion":
+      type: "object"
+      properties:
+        "deletable":
+          type: "boolean"
+        "f26272id":
+          type: "string"
+        "imageUrl":
+          type: "string"
+    "User":
+      type: "object"
+      properties:
+        "f20164a":
+          type: "boolean"
+        "f20165b":
+          type: "boolean"
+    "Query":
+      type: "object"
+      properties:
+        "category":
+          $ref: "#/components/schemas/Category"
+        "f34320id":
+          type: "string"
+        "order":
+          type: "string"
+        "parameters":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Parameter"
+        "phrase":
+          type: "string"
+        "searchMode":
+          $ref: "#/components/schemas/SearchMode"
+        "seller":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Seller"
+        "shouldSendNotification":
+          type: "boolean"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11519d":
+      type: "object"
+      properties:
+        "type":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11520e"
+        "upload":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11521f"
+        "url":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11522g":
+      type: "object"
+      properties:
+        "parts":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11523h"
+        "url":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11532q":
+      type: "object"
+      properties:
+        "tasks":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11530o"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11534s":
+      type: "object"
+      properties:
+        "email":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11536u":
+      type: "object"
+      properties:
+        "message":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.GetUserResponse":
+      type: "object"
+      properties:
+        "allegro":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11518c"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11517b":
+      type: "object"
+      properties:
+        "residence":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11528m"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11525j":
+      type: "object"
+      properties:
+        "email":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11527l":
+      type: "object"
+      properties:
+        "firstName":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1421g2.p1424i.SmartSubscription":
+      type: "string"
+      enum:
+      - "ACTIVE"
+      - "ABOUT_TO_EXPIRE"
+      - "PAYMENT_OVERDUE"
+      - "INACTIVE"
+    "p009j.p010a.p012b.p407a.p1469i.p1513r.p1521c.p1523c.C12921c":
+      type: "object"
+      properties:
+        "installments":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1513r.p1521c.p1523c.PaymentsScheduleResponse"
+        "lastUpdate":
+          type: "string"
+          format: "date-time"
+        "paymentId":
+          type: "string"
+        "penaltyInterest":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1513r.p1521c.p1523c.C12920b"
+        "purchaseOfferCount":
+          type: "integer"
+        "title":
+          type: "string"
+    "p009j.p010a.p979q1.p1007s0.p1010f.PaymentStatusResult.C7240b":
+      type: "object"
+      properties:
+        "authResult":
+          $ref: "#/components/schemas/p009j.p010a.p979q1.p1007s0.p1010f.PaymentStatusResult.C7239a"
+        "status":
+          type: "string"
+        "token":
+          type: "string"
+    "p009j.p010a.p979q1.p1007s0.p1010f.PaymentStatusResult.C7241c":
+      type: "object"
+      properties:
+        "buyerId":
+          type: "string"
+        "f24081id":
+          type: "string"
+        "selectedMethods":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p979q1.p1007s0.p1010f.PaymentStatusResult.C7242d"
+        "status":
+          $ref: "#/components/schemas/Status"
+        "statusChangedAt":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1525t.p1535c.p1536f.StartRepaymentResponse":
+      type: "object"
+      properties:
+        "dueDate":
+          type: "string"
+          format: "date-time"
+        "installmentId":
+          type: "string"
+        "installmentNo":
+          type: "integer"
+        "isLate":
+          type: "boolean"
+        "orderSummary":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1525t.p1535c.p1536f.C13030b"
+        "paymentId":
+          type: "string"
+        "paymentValue":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "totalInstallments":
+          type: "integer"
+    "p009j.p010a.p012b.p407a.p1469i.p1525t.p1535c.p1536f.C13031d":
+      type: "object"
+      properties:
+        "amount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "penaltyInterestIds":
+          type: "array"
+          items:
+            type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.PaymentDetailsHistoryResponse":
+      type: "object"
+      properties:
+        "date":
+          $ref: "#/components/schemas/ZonedDateTime"
+        "message":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12794d"
+    "ZonedDateTime":
+      type: "object"
+      properties:
+        "f57034a":
+          type: "string"
+          format: "date-time"
+        "f57035b":
+          $ref: "#/components/schemas/java.time.ZoneOffset"
+        "f57036c":
+          $ref: "#/components/schemas/ZoneId"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12793b":
+      type: "object"
+      properties:
+        "documentId":
+          type: "string"
+        "documentNumber":
+          type: "string"
+        "documentType":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.PaymentDetailsResponse":
+      type: "object"
+      properties:
+        "aprc":
+          type: "number"
+        "cost":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "creditPlanType":
+          $ref: "#/components/schemas/CreditPlanType"
+        "installmentAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "tenor":
+          type: "integer"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12800j":
+      type: "object"
+      properties:
+        "items":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12801k"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12803m":
+      type: "object"
+      properties:
+        "dueDate":
+          type: "string"
+          format: "date-time"
+        "installmentId":
+          type: "string"
+        "installmentNo":
+          type: "integer"
+        "isLate":
+          type: "boolean"
+        "paymentId":
+          type: "string"
+        "paymentValue":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "status":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12807q"
+        "totalInstallments":
+          type: "integer"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12804n":
+      type: "object"
+      properties:
+        "amount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "penaltyInterestIds":
+          type: "array"
+          items:
+            type: "string"
+        "status":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12807q"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12805o":
+      type: "object"
+      properties:
+        "ban":
+          type: "string"
+        "bankName":
+          type: "string"
+        "iban":
+          type: "string"
+        "ownerAddressDetails":
+          type: "string"
+        "ownerName":
+          type: "string"
+        "transferTitle":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.EligibilityResponse.C12891a":
+      type: "string"
+      enum:
+      - "NOT_AVAILABLE"
+      - "TO_ACTIVATION"
+      - "VERIFICATION"
+      - "BLOCKED"
+      - "ACTIVE"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12884h":
+      type: "object"
+      properties:
+        "closeDate":
+          $ref: "#/components/schemas/ZonedDateTime"
+        "currentInstallmentRemainingObligationAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "currentPlan":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.DashboardHistoryResponse"
+        "orderSummary":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12882f"
+        "overdueAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "paymentId":
+          type: "string"
+        "repaidAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "repaidInstallmentsCount":
+          type: "integer"
+        "repaymentPercentage":
+          type: "integer"
+        "toBeRepaidInstallmentsAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "toBeRepaidInstallmentsCount":
+          type: "integer"
+        "transactionDate":
+          type: "string"
+          format: "date-time"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12881d":
+      type: "object"
+      properties:
+        "availableAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "currentUsage":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "limit":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "messages":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.DashboardUpcomingPaymentsResponse"
+        "state":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12880c"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12886j":
+      type: "object"
+      properties:
+        "dueDate":
+          type: "string"
+          format: "date-time"
+        "installmentId":
+          type: "string"
+        "installmentNo":
+          type: "integer"
+        "isLate":
+          type: "boolean"
+        "orderSummary":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12885i"
+        "paymentId":
+          type: "string"
+        "paymentValue":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "status":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12888l"
+        "totalInstallments":
+          type: "integer"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12887k":
+      type: "object"
+      properties:
+        "amount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "penaltyInterestIds":
+          type: "array"
+          items:
+            type: "string"
+        "status":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12888l"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12889m":
+      type: "object"
+      properties:
+        "amount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "installmentIds":
+          type: "array"
+          items:
+            type: "string"
+        "penaltyInterestIds":
+          type: "array"
+          items:
+            type: "string"
+    "RestAttentionerLabel":
+      type: "object"
+      properties:
+        "color":
+          type: "string"
+        "text":
+          type: "string"
+    "RestInboxMessageRaw":
+      type: "object"
+      properties:
+        "category":
+          type: "string"
+        "createdAt":
+          type: "string"
+        "groupId":
+          type: "string"
+        "href":
+          type: "string"
+        "image":
+          $ref: "#/components/schemas/RestInboxImage"
+        "status":
+          type: "string"
+        "text":
+          type: "string"
+        "tinkerbellId":
+          type: "string"
+    "RestInboxEvent":
+      type: "object"
+      properties:
+        "tinkerbellId":
+          type: "string"
+    "OneCookiePreference":
+      type: "object"
+      properties:
+        "name":
+          type: "string"
+        "value":
+          type: "object"
+          additionalProperties: {}
+    "p009j.p010a.p012b.p812h.p815h.TechEvent":
+      type: "string"
+      enum:
+      - "WIFI"
+      - "CELLULAR"
+      - "UNKNOWN"
+    "Events":
+      type: "object"
+      properties:
+        "f26622a":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/EventValue"
+        "f26623b":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/EventValue"
+    "java.util.Currency":
+      type: "object"
+      additionalProperties: {}
+    "p009j.p010a.p012b.p407a.p1233d.p1244b.p1257n0.p1263d.p1264c.AvailableCreditPlan.C10649a":
+      type: "object"
+      properties:
+        "kind":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1233d.p1244b.p1257n0.p1263d.p1264c.AvailableCreditPlan.C10649a.C10650a"
+        "logo":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1233d.p1244b.p1257n0.p1263d.p1264c.AvailableCreditPlan.C10649a.C10651b"
+    "CreditPlanTenor":
+      type: "object"
+      properties:
+        "quantity":
+          type: "integer"
+        "unit":
+          $ref: "#/components/schemas/p009j.p010a.p979q1.p1007s0.p1008d.CreditPlanTenor.C7232a"
+    "Gallery":
+      type: "object"
+      properties:
+        "images":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ImageUrl"
+    "SellingMode":
+      type: "object"
+      properties:
+        "buyNow":
+          $ref: "#/components/schemas/BuyNow"
+    "Category":
+      type: "object"
+      properties:
+        "breadcrumb":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/CategoryName"
+        "f34318id":
+          type: "string"
+    "Parameter":
+      type: "object"
+      properties:
+        "pretty":
+          $ref: "#/components/schemas/KeyValueParameter"
+        "raw":
+          $ref: "#/components/schemas/KeyValueParameter"
+    "SearchMode":
+      type: "string"
+      enum:
+      - "REGULAR"
+      - "DESCRIPTIONS"
+    "Seller":
+      type: "object"
+      properties:
+        "f24140id":
+          type: "string"
+        "login":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11520e":
+      type: "string"
+      enum:
+      - "UPLOADED"
+      - "SOCIAL"
+      - "USER_DEFAULT"
+      - "COMPANY_DEFAULT"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11521f":
+      type: "object"
+      properties:
+        "enabled":
+          type: "boolean"
+        "reason":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11523h":
+      type: "object"
+      properties:
+        "text":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11533r"
+        "type":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11524i"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11530o":
+      type: "object"
+      properties:
+        "action":
+          type: "string"
+        "description":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11533r"
+        "name":
+          type: "string"
+        "status":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11531p"
+        "url":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11518c":
+      type: "object"
+      properties:
+        "login":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11528m":
+      type: "object"
+      properties:
+        "addressLine":
+          type: "string"
+        "city":
+          type: "string"
+        "countryCode":
+          type: "string"
+        "county":
+          type: "string"
+        "firstName":
+          type: "string"
+        "lastName":
+          type: "string"
+        "phoneNumber":
+          type: "string"
+        "valid":
+          type: "boolean"
+        "zipCode":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1513r.p1521c.p1523c.PaymentsScheduleResponse":
+      type: "object"
+      properties:
+        "amount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "dueDate":
+          type: "string"
+          format: "date-time"
+        "installmentNumber":
+          type: "integer"
+        "isLate":
+          type: "boolean"
+    "p009j.p010a.p012b.p407a.p1469i.p1513r.p1521c.p1523c.C12920b":
+      type: "object"
+      properties:
+        "amount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "fromDate":
+          type: "string"
+          format: "date-time"
+    "p009j.p010a.p979q1.p1007s0.p1010f.PaymentStatusResult.C7239a":
+      type: "object"
+      properties:
+        "repairable":
+          type: "boolean"
+    "p009j.p010a.p979q1.p1007s0.p1010f.PaymentStatusResult.C7242d":
+      type: "object"
+      properties:
+        "group":
+          $ref: "#/components/schemas/PaymentMethod"
+        "f24082id":
+          type: "string"
+        "provider":
+          type: "string"
+    "Status":
+      type: "string"
+      enum:
+      - "CREATED"
+      - "IN_PROGRESS"
+      - "WAITING_FOR_MONEY"
+      - "EXTERNAL_PAYMENT"
+      - "CANCELLED"
+      - "PAID"
+      - "OVERPAID"
+      - "ERROR"
+      - "UNDERPAID"
+    "p009j.p010a.p012b.p407a.p1469i.p1525t.p1535c.p1536f.C13030b":
+      type: "object"
+      properties:
+        "purchaseImageUrl":
+          type: "string"
+        "purchaseItemsCount":
+          type: "integer"
+        "purchaseTitle":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12794d":
+      type: "object"
+      properties:
+        "substitutions":
+          type: "object"
+          additionalProperties:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12796f"
+        "text":
+          type: "string"
+    "java.time.ZoneOffset":
+      type: "object"
+      additionalProperties: {}
+    "ZoneId":
+      type: "object"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12801k":
+      type: "object"
+      properties:
+        "items":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12802l"
+        "orderId":
+          type: "string"
+        "sellerName":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12807q":
+      type: "string"
+      enum:
+      - "TO_BE_PAID"
+      - "PROCESSING"
+      - "ACCOUNTING"
+      - "PAID"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.DashboardHistoryResponse":
+      type: "object"
+      properties:
+        "aprc":
+          type: "number"
+        "cost":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "creditPlanType":
+          $ref: "#/components/schemas/CreditPlanType"
+        "installmentAmount":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "tenor":
+          type: "integer"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12882f":
+      type: "object"
+      properties:
+        "purchaseImageUrl":
+          type: "string"
+        "purchaseItemsCount":
+          type: "integer"
+        "purchaseTitle":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.DashboardUpcomingPaymentsResponse":
+      type: "object"
+      properties:
+        "text":
+          type: "string"
+        "type":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12879b"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12880c":
+      type: "string"
+      enum:
+      - "NOT_ACTIVE"
+      - "ACTIVE"
+      - "DISABLED"
+      - "DISABLED_DUE_DEBT"
+      - "BLOCKED_FUNDS"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12885i":
+      type: "object"
+      properties:
+        "purchaseImageUrl":
+          type: "string"
+        "purchaseItemsCount":
+          type: "integer"
+        "purchaseTitle":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12888l":
+      type: "string"
+      enum:
+      - "TO_BE_PAID"
+      - "PROCESSING"
+      - "ACCOUNTING"
+      - "PAID"
+    "RestInboxImage":
+      type: "object"
+      properties:
+        "png":
+          type: "string"
+    "EventValue":
+      type: "object"
+      properties:
+        "f26620a":
+          type: "string"
+        "f26621b":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1233d.p1244b.p1257n0.p1263d.p1264c.AvailableCreditPlan.C10649a.C10650a":
+      type: "string"
+      enum:
+      - "FOR_SMART"
+    "p009j.p010a.p012b.p407a.p1233d.p1244b.p1257n0.p1263d.p1264c.AvailableCreditPlan.C10649a.C10651b":
+      type: "object"
+      properties:
+        "darkUrl":
+          type: "string"
+        "lightUrl":
+          type: "string"
+    "p009j.p010a.p979q1.p1007s0.p1008d.CreditPlanTenor.C7232a":
+      type: "string"
+      enum:
+      - "DAY"
+      - "MONTH"
+    "ImageUrl":
+      type: "object"
+      properties:
+        "url":
+          type: "string"
+    "BuyNow":
+      type: "object"
+      properties:
+        "cartAvailable":
+          type: "boolean"
+        "price":
+          $ref: "#/components/schemas/MonetaryAmount"
+    "CategoryName":
+      type: "object"
+      properties:
+        "f34319id":
+          type: "string"
+        "name":
+          type: "string"
+    "KeyValueParameter":
+      type: "object"
+      properties:
+        "key":
+          type: "string"
+        "value":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11533r":
+      type: "object"
+      properties:
+        "style":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11529n"
+        "text":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11524i":
+      type: "string"
+      enum:
+      - "TEXT"
+      - "IMAGE"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11531p":
+      type: "string"
+      enum:
+      - "TODO"
+      - "DONE"
+      - "UNKNOWN"
+    "PaymentMethod":
+      type: "string"
+      enum:
+      - "PBL"
+      - "PEX"
+      - "CARD"
+      - "STORED_CARD"
+      - "OFFLINE"
+      - "INSTALLMENTS"
+      - "BLIK"
+      - "ANDROID_PAY"
+      - "DELAY"
+      - "CREDIT"
+      - "UNKNOWN"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12796f":
+      type: "object"
+      properties:
+        "params":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12797g"
+        "style":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12798h"
+        "type":
+          $ref: "#/components/schemas/p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12799i"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12802l":
+      type: "object"
+      properties:
+        "f37063id":
+          type: "string"
+        "imageUrl":
+          type: "string"
+        "name":
+          type: "string"
+        "quantity":
+          type: "integer"
+    "p009j.p010a.p012b.p407a.p1469i.p1503o.p1507e.p1509c.C12879b":
+      type: "string"
+      enum:
+      - "BLOCKED"
+      - "BLOCKED_CONTACT"
+      - "BLOCKED_HELP"
+    "p009j.p010a.p012b.p407a.p1352h.p1378a2.p1379a.C11529n":
+      type: "object"
+      properties:
+        "color":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12797g":
+      type: "object"
+      properties:
+        "link":
+          type: "string"
+        "money":
+          $ref: "#/components/schemas/MonetaryAmount"
+        "text":
+          type: "string"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12798h":
+      type: "object"
+      properties:
+        "bold":
+          type: "boolean"
+    "p009j.p010a.p012b.p407a.p1469i.p1492c.p1500c.p1502d.C12799i":
+      type: "string"
+      enum:
+      - "TEXT"
+      - "MONEY"
+      - "LINK"

@@ -1,0 +1,2905 @@
+openapi: "3.0.0"
+info:
+  title: "Extracted from retrofit"
+  description: "ddd"
+  version: "1.0.0"
+paths:
+  "/v3/advertisements":
+    "get":
+      summary: "MENewsAPI.getAdvertisement"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/rh2"
+          description: "Response body type was declared as `sg1<List<rh2>>`"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MENewsAPI"
+  "/con/v3/deviceRegistration":
+    "post":
+      summary: "MESNApi.deviceRegister"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sf2"
+          description: "Response body type was declared as `sg1<sf2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/yf2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MESNApi"
+  "/off/v3/redeemedOffers/renewable/generateScanCode/{offerId}":
+    "post":
+      summary: "MESNApi.reRedeemOffer"
+      parameters:
+      - name: "offerId"
+        in: "path"
+        description: "MESNApi.reRedeemOffer.i"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/gi2"
+          description: "Response body type was declared as `sg1<gi2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MESNApi"
+  "/con/v3/consumers/redeemedOffers":
+    "post":
+      summary: "MESNApi.redeemWithCustomHeader"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/gi2"
+          description: "Response body type was declared as `sg1<gi2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/hi2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MESNApi"
+  "/con/v3/emailRegistrations":
+    "post":
+      summary: "MESNApi.singUpWithCustomHeader"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sf2"
+          description: "Response body type was declared as `sg1<sf2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/dg2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MESNApi"
+  "/con/v3/consumers/points":
+    "post":
+      summary: "MESNApi.updateLoyaltyPoint"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/bi2"
+          description: "Response body type was declared as `sg1<bi2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ki2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MESNApi"
+  "/v3/configurations":
+    "get":
+      summary: "MEConfigAPI.getConfiguration"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/th2"
+          description: "Response body type was declared as `sg1<th2>`"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConfigAPI"
+  "/v3/geotiles":
+    "get":
+      summary: "MEConfigAPI.getGeoTiles"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/yh2"
+          description: "Response body type was declared as `sg1<List<yh2>>`"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConfigAPI"
+  "/v3/loyaltycards":
+    "get":
+      summary: "MEOfferAPI.getLoyaltyCards"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/zh2"
+          description: "Response body type was declared as `sg1<List<zh2>>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEOfferAPI"
+  "/v3/offers":
+    "get":
+      summary: "MEOfferAPI.getOffers"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ci2"
+          description: "Response body type was declared as `sg1<List<ci2>>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEOfferAPI"
+  "/v3/redeemedOffers/renewable":
+    "get":
+      summary: "MEOfferAPI.getReturnedOffer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ii2"
+          description: "Response body type was declared as `sg1<List<ii2>>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEOfferAPI"
+  "/v3/offers/{offerId}/termsAndConditions":
+    "get":
+      summary: "MEOfferAPI.getTermsAndCondition"
+      parameters:
+      - name: "offerId"
+        in: "path"
+        description: "MEOfferAPI.getTermsAndCondition.i"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ji2"
+          description: "Response body type was declared as `sg1<List<ji2>>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEOfferAPI"
+  "/v3/merchants/{merchantId}/nearestvenue":
+    "get":
+      summary: "MEOfferAPI.getVenueId"
+      parameters:
+      - name: "merchantId"
+        in: "path"
+        description: "MEOfferAPI.getVenueId.i"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/li2"
+          description: "Response body type was declared as `sg1<li2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEOfferAPI"
+  "/v3/redeemedOffers/generateScanCode/{offerId}":
+    "post":
+      summary: "MEOfferAPI.reRedeemOffer"
+      parameters:
+      - name: "offerId"
+        in: "path"
+        description: "MEOfferAPI.reRedeemOffer.i"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/gi2"
+          description: "Response body type was declared as `sg1<gi2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEOfferAPI"
+  "/Authorization/AccessToken":
+    "get":
+      summary: "MEAuthenticationApi.getAccessTokenFromRefreshToken"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ng2"
+          description: "Response body type was declared as `sg1<ng2>`"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEAuthenticationApi"
+  "/Authorization/ActivityTokens":
+    "get":
+      summary: "MEAuthenticationApi.getActivityTokenFromAccessToken"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ng2"
+          description: "Response body type was declared as `sg1<ng2>`"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEAuthenticationApi"
+  "/v3/consumers/loyaltyCardInstances/{loyaltyInstanceId}/offeractivation":
+    "post":
+      summary: "MEConsumerAPI.activateOffer"
+      parameters:
+      - name: "loyaltyInstanceId"
+        in: "path"
+        description: "MEConsumerAPI.activateOffer.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/oh2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/mfa/Configure":
+    "post":
+      summary: "MEConsumerAPI.changeMFA"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/tf2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/market":
+    "put":
+      summary: "MEConsumerAPI.changeMarket"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sf2"
+          description: "Response body type was declared as `sg1<sf2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/bg2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/marketwithMfa":
+    "put":
+      summary: "MEConsumerAPI.changeMarketMFA"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sf2"
+          description: "Response body type was declared as `sg1<sf2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/bg2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/password":
+    "post":
+      summary: "MEConsumerAPI.changePassword"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sf2"
+          description: "Response body type was declared as `sg1<sf2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/uf2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/tokens":
+    "get":
+      summary: "MEConsumerAPI.convertLegacyToJWT"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ng2"
+          description: "Response body type was declared as `sg1<ng2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/crossReferences":
+    "post":
+      summary: "MEConsumerAPI.createCrossRef"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/uh2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+    "get":
+      summary: "MEConsumerAPI.getCrossRef"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/vh2"
+          description: "Response body type was declared as `sg1<List<vh2>>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/deviceRegistration":
+    "post":
+      summary: "MEConsumerAPI.deviceRegister"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sf2"
+          description: "Response body type was declared as `sg1<sf2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/yf2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/consent":
+    "get":
+      summary: "MEConsumerAPI.getConsent"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/vf2"
+          description: "Response body type was declared as `sg1<vf2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+    "post":
+      summary: "MEConsumerAPI.postConsent"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/vf2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/loyaltyCards/{loyaltyCardId}/expiringPoints":
+    "get":
+      summary: "MEConsumerAPI.getExpiryPoints"
+      parameters:
+      - name: "loyaltyCardId"
+        in: "path"
+        description: "MEConsumerAPI.getExpiryPoints.i"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/wh2"
+          description: "Response body type was declared as `sg1<List<wh2>>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/pointsrequests":
+    "get":
+      summary: "MEConsumerAPI.getPointTransaction"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ei2"
+          description: "Response body type was declared as `sg1<ei2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/redeemedOffers":
+    "get":
+      summary: "MEConsumerAPI.getRedeemedOffers"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/gi2"
+          description: "Response body type was declared as `sg1<List<gi2>>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+    "post":
+      summary: "MEConsumerAPI.redeemOffer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/gi2"
+          description: "Response body type was declared as `sg1<gi2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/hi2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/serviceIdRequest?source=consumer":
+    "get":
+      summary: "MEConsumerAPI.getServiceId"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/wf2"
+          description: "Response body type was declared as `sg1<wf2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/me/tagvalues":
+    "get":
+      summary: "MEConsumerAPI.getTags"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/eg2"
+          description: "Response body type was declared as `sg1<eg2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+    "put":
+      summary: "MEConsumerAPI.updateTags"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/fg2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers":
+    "get":
+      summary: "MEConsumerAPI.getUser"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/nh2"
+          description: "Response body type was declared as `sg1<nh2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+    "put":
+      summary: "MEConsumerAPI.updateUser"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/nh2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/me/verificationtoken":
+    "get":
+      summary: "MEConsumerAPI.getVerificationToken"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/mi2"
+          description: "Response body type was declared as `sg1<mi2>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/logins":
+    "post":
+      summary: "MEConsumerAPI.login"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ag2"
+          description: "Response body type was declared as `sg1<ag2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/yf2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/loginwithmfa":
+    "post":
+      summary: "MEConsumerAPI.loginMFA"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ag2"
+          description: "Response body type was declared as `sg1<ag2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/zf2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/resetPassword":
+    "post":
+      summary: "MEConsumerAPI.requestResetPassword"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cg2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/mfa/ResendOTP":
+    "post":
+      summary: "MEConsumerAPI.resendMFA"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/mfa/SendOTP":
+    "post":
+      summary: "MEConsumerAPI.sendMFA"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/sendEmail":
+    "post":
+      summary: "MEConsumerAPI.sendVerifyEmail"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/gg2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/emailRegistrations":
+    "post":
+      summary: "MEConsumerAPI.singUp"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sf2"
+          description: "Response body type was declared as `sg1<sf2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/dg2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/consumers/points":
+    "post":
+      summary: "MEConsumerAPI.updateLoyaltyPoint"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/bi2"
+          description: "Response body type was declared as `sg1<bi2>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ki2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEConsumerAPI"
+  "/v3/activities":
+    "post":
+      summary: "MEActivityAPI.sendActivity"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uf1"
+          description: "Response body type was declared as `uf1`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ph2"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.p012me.api.MEActivityAPI"
+  "/api/config/v1/locations":
+    "get":
+      summary: "ApeMarketPickerService.getMarketPicker"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApeMarketPickerModel"
+          description: "Response body type was declared as `na3<ApeMarketPickerModel>`"
+      servers:
+      - url: "https://config-api-dot-prd-euw-gmal-mcdonalds.appspot.com/"
+      x-retrofit-interface: "mcdonalds.dataprovider.apegroup.marketpicker.ApeMarketPickerDataProvider.ApeMarketPickerService"
+  "/api/locationfinder/v1/client/location/info":
+    "get":
+      summary: "GeoIpService.getGeoIp"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeoIpResponse"
+          description: "Response body type was declared as `sg1<GeoIpResponse>`"
+      servers:
+      - url: "https://locationfinder-api-dot-prd-euw-gmal-mcdonalds.appspot.com/"
+      x-retrofit-interface: "mcdonalds.dataprovider.apegroup.marketpicker.ApeMarketSwitcherProvider.GeoIpService"
+  "/api/config/v1/configs/{marketid}/{languagecode}-{countrycode}":
+    "get":
+      summary: "ApeConfigurationService.getMarketConfiguration"
+      parameters:
+      - name: "marketid"
+        in: "path"
+        description: "ApeConfigurationService.getMarketConfiguration.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "languagecode"
+        in: "path"
+        description: "ApeConfigurationService.getMarketConfiguration.str2"
+        required: true
+        schema:
+          type: "string"
+      - name: "countrycode"
+        in: "path"
+        description: "ApeConfigurationService.getMarketConfiguration.str3"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties:
+                  type: "object"
+                  additionalProperties: {}
+          description: "Response body type was declared as `sg1<Map<String, Object>>`"
+      servers:
+      - url: "https://config-api-dot-prd-euw-gmal-mcdonalds.appspot.com/"
+      x-retrofit-interface: "mcdonalds.dataprovider.apegroup.configuration.ApeConfigurationProvider.ApeConfigurationService"
+  "/api/time/v1/time":
+    "get":
+      summary: "ApeTimeService.getServerTime"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServerTimeModel"
+          description: "Response body type was declared as `na3<ServerTimeModel>`"
+      servers:
+      - url: "https://user-api-dot-dev-euw-gmal-mcdonalds.appspot.com/"
+      x-retrofit-interface: "mcdonalds.dataprovider.apegroup.configuration.ApeServerTimeProvider.ApeTimeService"
+  "/api/user/v1/exists/{marketId}/{mobileNumber}":
+    "get":
+      summary: "ApeAccountUniqueService.checkMobileUnique"
+      parameters:
+      - name: "marketId"
+        in: "path"
+        description: "ApeAccountUniqueService.checkMobileUnique.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "mobileNumber"
+        in: "path"
+        description: "ApeAccountUniqueService.checkMobileUnique.str2"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApeAccountUniqueWrapper"
+          description: "Response body type was declared as `na3<ApeAccountUniqueWrapper>`"
+      servers:
+      - url: "https://user-api-dot-dev-euw-gmal-mcdonalds.appspot.com/"
+      x-retrofit-interface: "mcdonalds.dataprovider.apegroup.account.ApeAccountUniquenessProvider.ApeAccountUniqueService"
+  "/{language}-{country}.json":
+    "get":
+      summary: "ApeResourcesService.getStringResources"
+      parameters:
+      - name: "language"
+        in: "path"
+        description: "ApeResourcesService.getStringResources.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "country"
+        in: "path"
+        description: "ApeResourcesService.getStringResources.str2"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties:
+                  type: "object"
+                  additionalProperties: {}
+          description: "Response body type was declared as `na3<Map<String, Object>>`"
+      x-retrofit-interface: "mcdonalds.dataprovider.apegroup.resources.ApeRemoteStringDataProvider.ApeResourcesService"
+  "/{loyalty_id}/points":
+    "post":
+      summary: "ApeBurnLoyaltyPointsService.burnPoints"
+      parameters:
+      - name: "loyalty_id"
+        in: "path"
+        description: "ApeBurnLoyaltyPointsService.burnPoints.i"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<Void>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BurnPointsModel"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "mcdonalds.dataprovider.apegroup.loyalty.ApeLoyaltyDeductService.ApeBurnLoyaltyPointsService"
+  "/api/locationfinder/v1/restaurants/{marketid}/{language}-{country}":
+    "get":
+      summary: "ApegroupRestaurantService.getRestaurants"
+      parameters:
+      - name: "marketid"
+        in: "path"
+        description: "ApegroupRestaurantService.getRestaurants.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "language"
+        in: "path"
+        description: "ApegroupRestaurantService.getRestaurants.str2"
+        required: true
+        schema:
+          type: "string"
+      - name: "country"
+        in: "path"
+        description: "ApegroupRestaurantService.getRestaurants.str3"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestaurantResponse"
+          description: "Response body type was declared as `na3<RestaurantResponse>`"
+      servers:
+      - url: "https://locationfinder-api-dot-prd-euw-gmal-mcdonalds.appspot.com/"
+      x-retrofit-interface: "mcdonalds.dataprovider.apegroup.restaurant.ApeRestaurantDataProvider.ApegroupRestaurantService"
+  "/1.1/contacts/destroy/all.json":
+    "post":
+      summary: "UserAuthApiInterface.deleteAll"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<k03>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+  "/1.1/sdk/account/email":
+    "post":
+      summary: "UserAuthApiInterface.email"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<k03>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+  "/1.1/contacts/phone_numbers.json":
+    "get":
+      summary: "UserAuthApiInterface.getContactsMatchesAsPhoneNumbers"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ia0"
+          description: "Response body type was declared as `na3<ia0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+  "/1.1/invites":
+    "get":
+      summary: "UserAuthApiInterface.getInvites"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/na0"
+          description: "Response body type was declared as `na3<na0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+    "post":
+      summary: "UserAuthApiInterface.recordInvite"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties:
+                  type: "boolean"
+          description: "Response body type was declared as `na3<Map<String, Boolean>>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ja0"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+  "/1.1/invites/join_notify":
+    "post":
+      summary: "UserAuthApiInterface.joinNotify"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/na0"
+          description: "Response body type was declared as `na3<na0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+  "/1.1/contacts/upload.json":
+    "post":
+      summary: "UserAuthApiInterface.upload"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pa0"
+          description: "Response body type was declared as `na3<pa0>`"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/qa0"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+  "/1.1/contacts/users_and_uploaded_by.json":
+    "get":
+      summary: "UserAuthApiInterface.usersAndUploadedBy"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ia0"
+          description: "Response body type was declared as `na3<ia0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+  "/1.1/sdk/account.json":
+    "get":
+      summary: "UserAuthApiInterface.verifyAccount"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ra0"
+          description: "Response body type was declared as `na3<ra0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.UserAuthApiInterface"
+    "post":
+      summary: "GuestAuthApiInterface.account"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DigitsUser"
+          description: "Response body type was declared as `na3<DigitsUser>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.GuestAuthApiInterface"
+  "/1/sdk/login":
+    "post":
+      summary: "GuestAuthApiInterface.auth"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ha0"
+          description: "Response body type was declared as `na3<ha0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.GuestAuthApiInterface"
+  "/auth/1/xauth_challenge.json":
+    "post":
+      summary: "GuestAuthApiInterface.login"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/la0"
+          description: "Response body type was declared as `na3<la0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.GuestAuthApiInterface"
+  "/1.1/device/register.json":
+    "post":
+      summary: "GuestAuthApiInterface.register"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ka0"
+          description: "Response body type was declared as `na3<ka0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.GuestAuthApiInterface"
+  "/auth/1/xauth_pin.json":
+    "post":
+      summary: "GuestAuthApiInterface.verifyPin"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/la0"
+          description: "Response body type was declared as `na3<la0>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.digits.sdk.android.GuestAuthApiInterface"
+  "/1.1/account/verify_credentials.json":
+    "get":
+      summary: "AccountService.verifyCredentials"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/x71"
+          description: "Response body type was declared as `na3<x71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.AccountService"
+  "/1.1/favorites/create.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "post":
+      summary: "FavoriteService.create"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<v71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.FavoriteService"
+  "/1.1/favorites/destroy.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "post":
+      summary: "FavoriteService.destroy"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<v71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.FavoriteService"
+  "/1.1/favorites/list.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "FavoriteService.list"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<List<v71>>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.FavoriteService"
+  "/1.1/collections/entries.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "CollectionService.collection"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<Object>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.CollectionService"
+  "/1.1/help/configuration.json":
+    "get":
+      summary: "ConfigurationService.configuration"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<Object>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.ConfigurationService"
+  "/1.1/statuses/destroy/{id}.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "post":
+      summary: "StatusesService.destroy"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "StatusesService.destroy.l"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<v71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/home_timeline.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "StatusesService.homeTimeline"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<List<v71>>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/lookup.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "StatusesService.lookup"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<List<v71>>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/mentions_timeline.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "StatusesService.mentionsTimeline"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<List<v71>>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/retweet/{id}.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "post":
+      summary: "StatusesService.retweet"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "StatusesService.retweet.l"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<v71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/retweets_of_me.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "StatusesService.retweetsOfMe"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<List<v71>>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/show.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "StatusesService.show"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<v71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/unretweet/{id}.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "post":
+      summary: "StatusesService.unretweet"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "StatusesService.unretweet.l"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<v71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/update.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "post":
+      summary: "StatusesService.update"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<v71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/statuses/user_timeline.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "StatusesService.userTimeline"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<List<v71>>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.StatusesService"
+  "/1.1/search/tweets.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "SearchService.tweets"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<Object>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.SearchService"
+  "https://upload.twitter.com/1.1/media/upload.json":
+    "post":
+      summary: "MediaService.upload"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<Object>`"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.MediaService"
+  "/1.1/lists/statuses.json?tweet_mode=extended&include_cards=true&cards_platform=TwitterKit-13":
+    "get":
+      summary: "ListService.statuses"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/v71"
+          description: "Response body type was declared as `na3<List<v71>>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.services.ListService"
+  "/{version}/jot/{type}":
+    "post":
+      summary: "ScribeService.upload"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/x-www-form-urlencoded;charset=UTF-8"
+      - name: "version"
+        in: "path"
+        description: "ScribeService.upload.str"
+        required: true
+        schema:
+          type: "string"
+      - name: "type"
+        in: "path"
+        description: "ScribeService.upload.str2"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<k03>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "com.twitter.sdk.android.core.internal.scribe.ScribeFilesSender.ScribeService"
+  "/scribe/{sequence}":
+    "post":
+      summary: "ScribeService.uploadSequence"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/x-www-form-urlencoded;charset=UTF-8"
+      - name: "sequence"
+        in: "path"
+        description: "ScribeService.uploadSequence.str"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<k03>`"
+      servers:
+      - url: "https://europe-west1-prd-euw-gmal-mcdonalds.cloudfunctions.net/loyalty/"
+      x-retrofit-interface: "com.twitter.sdk.android.core.internal.scribe.ScribeFilesSender.ScribeService"
+  "/oauth/access_token":
+    "post":
+      summary: "OAuthApi.getAccessToken"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<k03>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.internal.oauth.OAuth1aService.OAuthApi"
+  "/oauth/request_token":
+    "post":
+      summary: "OAuthApi.getTempToken"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                type: "object"
+                additionalProperties: {}
+          description: "Response body type was declared as `na3<k03>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.internal.oauth.OAuth1aService.OAuthApi"
+  "/oauth2/token":
+    "post":
+      summary: "OAuth2Api.getAppAuthToken"
+      parameters:
+      - name: "Content-Type"
+        in: "header"
+        description: "Static header added by @Headers({...})"
+        required: true
+        schema:
+          type: "string"
+          example: "application/x-www-form-urlencoded;charset=UTF-8"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OAuth2Token"
+          description: "Response body type was declared as `na3<OAuth2Token>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.internal.oauth.OAuth2Service.OAuth2Api"
+  "/1.1/guest/activate.json":
+    "post":
+      summary: "OAuth2Api.getGuestToken"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/y61"
+          description: "Response body type was declared as `na3<y61>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.internal.oauth.OAuth2Service.OAuth2Api"
+  "/1.1/account/verify_credentials.json?include_email=true":
+    "get":
+      summary: "EmailService.verifyCredentials"
+      responses:
+        "default":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/x71"
+          description: "Response body type was declared as `na3<x71>`"
+      servers:
+      - url: "https://api.twitter.com"
+      x-retrofit-interface: "com.twitter.sdk.android.core.identity.ShareEmailClient.EmailService"
+components:
+  schemas:
+    "rh2":
+      type: "object"
+      properties:
+        "id":
+          type: "integer"
+        "title":
+          type: "string"
+        "description":
+          type: "string"
+        "merchantId":
+          type: "integer"
+        "contentUrl":
+          type: "string"
+        "startDate":
+          type: "string"
+          format: "date-time"
+        "endDate":
+          type: "string"
+          format: "date-time"
+        "dailyStartTime":
+          type: "integer"
+        "dailyEndTime":
+          type: "integer"
+        "daysOfWeek":
+          type: "array"
+          items:
+            type: "integer"
+        "image":
+          type: "string"
+        "imageDescription":
+          type: "string"
+        "contentTagReferenceCodes":
+          type: "array"
+          items:
+            type: "string"
+        "isActive":
+          type: "boolean"
+        "isAvailableAllStores":
+          type: "boolean"
+        "distanceToClosestVenue":
+          type: "number"
+        "extendedData":
+          type: "string"
+        "channelCode":
+          type: "string"
+        "placementCode":
+          type: "string"
+        "clickThroughUrl":
+          type: "string"
+        "eventStartDateTime":
+          type: "string"
+          format: "date-time"
+        "dateCreated":
+          type: "string"
+          format: "date-time"
+        "dateModified":
+          type: "string"
+          format: "date-time"
+        "weight":
+          type: "integer"
+    "yf2":
+      type: "object"
+      properties:
+        "grant_type":
+          type: "string"
+        "username":
+          type: "string"
+        "password":
+          type: "string"
+        "returnCrossReferences":
+          type: "boolean"
+        "returnConsumerInfo":
+          type: "boolean"
+    "sf2":
+      type: "object"
+      properties:
+        "access_token":
+          type: "string"
+        "token_type":
+          type: "string"
+        "jwtRefreshToken":
+          type: "string"
+        "jwtAccessToken":
+          type: "string"
+        "jwtMfaToken":
+          type: "string"
+        "jwtActivityToken":
+          type: "string"
+    "gi2":
+      type: "object"
+      properties:
+        "isReward":
+          type: "boolean"
+        "id":
+          type: "integer"
+        "offerId":
+          type: "integer"
+        "offerInstanceUniqueId":
+          type: "string"
+        "promoImagePath":
+          type: "string"
+        "promoImageDescription":
+          type: "string"
+        "altImagePath":
+          type: "string"
+        "altImageDescription":
+          type: "string"
+        "title":
+          type: "string"
+        "description":
+          type: "string"
+        "startDate":
+          type: "string"
+          format: "date-time"
+        "endDate":
+          type: "string"
+          format: "date-time"
+        "lastUpdatedAt":
+          type: "string"
+          format: "date-time"
+        "termsAndConditions":
+          type: "string"
+        "redemptionText":
+          type: "string"
+        "redemptionImage":
+          type: "string"
+        "redeemedAt":
+          type: "string"
+        "redemptionTextExpiry":
+          type: "string"
+        "merchantId":
+          type: "integer"
+        "venueIds":
+          type: "array"
+          items:
+            type: "integer"
+        "paymentProviderSuccessUrl":
+          type: "string"
+        "isAGift":
+          type: "boolean"
+        "giftId":
+          type: "string"
+        "giftBatchId":
+          type: "string"
+        "giftedOnDate":
+          type: "string"
+          format: "date-time"
+        "burnt":
+          type: "boolean"
+        "burntAt":
+          type: "string"
+    "hi2":
+      type: "object"
+      properties:
+        "offerInstanceUniqueId":
+          type: "string"
+        "offerId":
+          type: "integer"
+    "dg2":
+      type: "object"
+      properties:
+        "grant_type":
+          type: "string"
+        "username":
+          type: "string"
+        "password":
+          type: "string"
+        "emailRegistration":
+          $ref: "#/components/schemas/xf2"
+        "currentMerchantId":
+          type: "integer"
+    "ki2":
+      type: "object"
+      properties:
+        "loyaltyCardId":
+          type: "integer"
+        "pointsRequested":
+          type: "integer"
+        "transactionId":
+          type: "string"
+        "autoActivateReward":
+          type: "boolean"
+        "fillMultipleCards":
+          type: "boolean"
+        "extendedData":
+          type: "string"
+    "bi2":
+      type: "object"
+      properties:
+        "loyaltyCardId":
+          type: "integer"
+        "pointsBalance":
+          type: "integer"
+        "pointsAllocated":
+          type: "integer"
+        "pointCreationSummary":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/fi2"
+    "th2":
+      type: "object"
+      properties:
+        "configurationApiUrl":
+          type: "string"
+        "activityApiUrl":
+          type: "string"
+        "consumerApiUrl":
+          type: "string"
+        "locationApiUrl":
+          type: "string"
+        "offerApiUrl":
+          type: "string"
+        "advertisementApiUrl":
+          type: "string"
+        "offerImagePrefix":
+          type: "string"
+        "geoTileSizeInDegrees":
+          type: "number"
+        "extendedParameters":
+          type: "string"
+        "tenantId":
+          type: "string"
+    "yh2":
+      type: "object"
+      properties:
+        "id":
+          type: "string"
+        "geofences":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/xh2"
+    "zh2":
+      type: "object"
+      properties:
+        "reasonCodes":
+          type: "array"
+          items:
+            type: "integer"
+        "instances":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ai2"
+        "offers":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ci2"
+        "contentTagReferenceCodes":
+          type: "array"
+          items:
+            type: "string"
+        "loyaltyCardId":
+          type: "integer"
+        "dailyStartTime":
+          type: "integer"
+        "dailyEndTime":
+          type: "integer"
+        "maxInstances":
+          type: "integer"
+        "startDate":
+          type: "string"
+        "endDate":
+          type: "string"
+        "extendedData":
+          type: "string"
+        "title":
+          type: "string"
+        "subtitle":
+          type: "string"
+        "description":
+          type: "string"
+        "instructions":
+          type: "string"
+        "termsAndConditions":
+          type: "string"
+        "pointsRequired":
+          type: "integer"
+        "initialPoints":
+          type: "integer"
+        "weighting":
+          type: "integer"
+        "cardImage":
+          type: "string"
+        "cardImageDescription":
+          type: "string"
+        "assetsPath":
+          type: "string"
+        "instancesAvailable":
+          type: "integer"
+        "maxPointsPerDay":
+          type: "number"
+        "maxPointsRequestsPerDay":
+          type: "number"
+        "loyaltyCardType":
+          $ref: "#/components/schemas/LoyaltyCardType"
+        "pointsExpiryDays":
+          type: "integer"
+        "categoryId":
+          type: "integer"
+        "categoryName":
+          type: "string"
+        "isActive":
+          type: "boolean"
+    "ci2":
+      type: "object"
+      properties:
+        "paymentAmount":
+          type: "number"
+        "paymentTaxRate":
+          type: "number"
+        "redemptionCount":
+          type: "integer"
+        "lastRedeemedAt":
+          type: "string"
+        "codeExpiryInMinutes":
+          type: "integer"
+        "pointValue":
+          type: "integer"
+        "burntCount":
+          type: "integer"
+        "lastBurntAt":
+          type: "string"
+        "weighting":
+          type: "integer"
+        "isGiftable":
+          type: "boolean"
+        "isAGift":
+          type: "boolean"
+        "giftedBy":
+          type: "string"
+        "giftedCopy":
+          type: "string"
+        "giftId":
+          type: "string"
+        "giftBatchId":
+          type: "string"
+        "giftedOnDate":
+          type: "string"
+          format: "date-time"
+        "termsAndConditions":
+          type: "string"
+        "isReward":
+          type: "boolean"
+        "isRespawningOffer":
+          type: "boolean"
+        "respawnsInDays":
+          type: "integer"
+        "respawnLimit":
+          type: "integer"
+        "venueIds":
+          type: "array"
+          items:
+            type: "integer"
+        "venueExternalIds":
+          type: "array"
+          items:
+            type: "string"
+        "closestVenue":
+          $ref: "#/components/schemas/sh2"
+        "id":
+          type: "integer"
+        "title":
+          type: "string"
+        "description":
+          type: "string"
+        "merchantId":
+          type: "integer"
+        "contentUrl":
+          type: "string"
+        "startDate":
+          type: "string"
+          format: "date-time"
+        "endDate":
+          type: "string"
+          format: "date-time"
+        "dailyStartTime":
+          type: "integer"
+        "dailyEndTime":
+          type: "integer"
+        "daysOfWeek":
+          type: "array"
+          items:
+            type: "integer"
+        "image":
+          type: "string"
+        "imageDescription":
+          type: "string"
+        "contentTagReferenceCodes":
+          type: "array"
+          items:
+            type: "string"
+        "isActive":
+          type: "boolean"
+        "isAvailableAllStores":
+          type: "boolean"
+        "distanceToClosestVenue":
+          type: "number"
+        "extendedData":
+          type: "string"
+        "offerInstanceUniqueId":
+          type: "string"
+        "imageAlt":
+          type: "string"
+        "imageAltDescription":
+          type: "string"
+        "isMerchantFavourite":
+          type: "boolean"
+        "lastUpdatedAt":
+          type: "string"
+          format: "date-time"
+        "categoryId":
+          type: "integer"
+        "categoryName":
+          type: "string"
+        "sortOrder":
+          type: "integer"
+        "isPremiumPlacement":
+          type: "boolean"
+    "ii2":
+      allOf:
+      - $ref: "#/components/schemas/ci2"
+      - type: "object"
+        properties:
+          "whenLastOfferCodeRequested":
+            type: "string"
+          "whenNewOfferCodeAvailable":
+            type: "string"
+          "redemptionText":
+            type: "string"
+          "redemptionTextExpiry":
+            type: "string"
+    "ji2":
+      type: "object"
+      properties:
+        "offerId":
+          type: "integer"
+        "content":
+          type: "string"
+    "li2":
+      type: "object"
+      properties:
+        "id":
+          type: "integer"
+        "distanceInMeters":
+          type: "number"
+    "ng2":
+      type: "object"
+      properties:
+        "jwtAccessToken":
+          type: "string"
+        "jwtRefreshToken":
+          type: "string"
+        "token_type":
+          type: "string"
+    "oh2":
+      type: "object"
+      properties:
+        "offerId":
+          type: "integer"
+    "uf1":
+      type: "object"
+    "tf2":
+      type: "object"
+      properties:
+        "Otp":
+          type: "string"
+        "EnableMfa":
+          type: "boolean"
+        "MfaChannel":
+          type: "string"
+    "bg2":
+      type: "object"
+      properties:
+        "marketId":
+          type: "string"
+        "otp":
+          type: "string"
+    "uf2":
+      type: "object"
+      properties:
+        "currentPassword":
+          type: "string"
+        "newPassword":
+          type: "string"
+    "uh2":
+      type: "object"
+      properties:
+        "systemType":
+          type: "integer"
+        "externalId":
+          type: "string"
+    "vf2":
+      type: "object"
+      properties:
+        "emailAddress":
+          type: "string"
+        "consentToStoreAndProcess":
+          type: "boolean"
+        "services":
+          type: "object"
+          additionalProperties:
+            type: "boolean"
+    "vh2":
+      type: "object"
+      properties:
+        "externalId":
+          type: "string"
+        "systemType":
+          type: "string"
+    "wh2":
+      type: "object"
+      properties:
+        "loyaltyCardId":
+          type: "integer"
+        "points":
+          type: "integer"
+        "expiryDayUtc":
+          type: "string"
+          format: "date-time"
+    "ei2":
+      type: "object"
+      properties:
+        "pointsRequests":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/di2"
+    "wf2":
+      type: "object"
+      properties:
+        "serviceId":
+          type: "string"
+    "eg2":
+      type: "object"
+      properties:
+        "tagValueReferenceCodes":
+          type: "array"
+          items:
+            type: "string"
+    "nh2":
+      type: "object"
+      properties:
+        "userName":
+          type: "string"
+        "emailAddress":
+          type: "string"
+        "firstName":
+          type: "string"
+        "lastName":
+          type: "string"
+        "fullName":
+          type: "string"
+        "gender":
+          $ref: "#/components/schemas/GenderType"
+        "dateOfBirth":
+          type: "string"
+        "homeCity":
+          type: "integer"
+        "extendedData":
+          type: "string"
+        "mobileNumber":
+          type: "string"
+        "postcode":
+          type: "string"
+        "currentMerchant":
+          type: "integer"
+        "isMfaEnabled":
+          type: "boolean"
+        "mfaChannel":
+          type: "string"
+    "mi2":
+      type: "object"
+      properties:
+        "verificationToken":
+          type: "string"
+        "expiryDate":
+          type: "string"
+          format: "date-time"
+    "ag2":
+      allOf:
+      - $ref: "#/components/schemas/sf2"
+      - type: "object"
+        properties:
+          "consumerInfo":
+            $ref: "#/components/schemas/nh2"
+          "crossReferences":
+            type: "array"
+            items:
+              $ref: "#/components/schemas/vh2"
+    "zf2":
+      type: "object"
+      properties:
+        "otp":
+          type: "string"
+        "returnCrossReferences":
+          type: "boolean"
+        "returnConsumerInfo":
+          type: "boolean"
+    "cg2":
+      type: "object"
+      properties:
+        "emailAddress":
+          type: "string"
+        "action":
+          type: "string"
+    "gg2":
+      type: "object"
+      properties:
+        "emailTemplate":
+          type: "string"
+        "emailAddress":
+          type: "string"
+        "inboundChannel":
+          type: "string"
+    "fg2":
+      type: "object"
+      properties:
+        "tagValueAddReferenceCodes":
+          type: "array"
+          items:
+            type: "string"
+        "tagValueRemoveReferenceCodes":
+          type: "array"
+          items:
+            type: "string"
+    "ph2":
+      type: "object"
+      properties:
+        "activities":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/qh2"
+    "ApeMarketPickerModel":
+      type: "object"
+      properties:
+        "enableMarketSwitch":
+          type: "boolean"
+        "markets":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ApeMarketModel"
+    "GeoIpResponse":
+      type: "object"
+      properties:
+        "country":
+          $ref: "#/components/schemas/Country"
+        "location":
+          $ref: "#/components/schemas/Location"
+    "ServerTimeModel":
+      type: "object"
+      properties:
+        "currentTime":
+          type: "string"
+    "ApeAccountUniqueWrapper":
+      type: "object"
+      properties:
+        "error":
+          type: "string"
+        "exists":
+          type: "boolean"
+    "BurnPointsModel":
+      type: "object"
+      properties:
+        "autoActivateReward":
+          type: "boolean"
+        "extendedData":
+          type: "string"
+        "fillMultipleCards":
+          type: "boolean"
+        "pointsRequested":
+          type: "integer"
+        "transactionId":
+          type: "string"
+    "RestaurantResponse":
+      type: "object"
+      properties:
+        "facilities":
+          type: "array"
+          items:
+            type: "string"
+        "restaurants":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Restaurant"
+    "ia0":
+      type: "object"
+      properties:
+        "users":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/DigitsUser"
+        "next_cursor":
+          type: "string"
+    "na0":
+      type: "object"
+      properties:
+        "invites":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Invite"
+    "ja0":
+      type: "object"
+      properties:
+        "invited_phone_numbers":
+          type: "array"
+          items:
+            type: "string"
+    "qa0":
+      type: "object"
+      properties:
+        "vcards":
+          type: "array"
+          items:
+            type: "string"
+    "pa0":
+      type: "object"
+      properties:
+        "errors":
+          type: "array"
+          items:
+            type: "object"
+            additionalProperties: {}
+    "ra0":
+      type: "object"
+      properties:
+        "access_token":
+          $ref: "#/components/schemas/TwitterAuthToken"
+        "id_str":
+          type: "integer"
+        "phone_number":
+          type: "string"
+        "email_address":
+          $ref: "#/components/schemas/ma0"
+    "DigitsUser":
+      type: "object"
+      properties:
+        "id":
+          type: "integer"
+        "id_str":
+          type: "string"
+        "phone_number":
+          type: "string"
+    "ha0":
+      type: "object"
+      properties:
+        "phone_number":
+          type: "string"
+        "login_verification_request_id":
+          type: "string"
+        "login_verification_user_id":
+          type: "integer"
+        "config":
+          $ref: "#/components/schemas/AuthConfigResponse"
+    "la0":
+      type: "object"
+      properties:
+        "oauth_token":
+          type: "string"
+        "oauth_token_secret":
+          type: "string"
+        "screen_name":
+          type: "string"
+        "user_id":
+          type: "integer"
+    "ka0":
+      type: "object"
+      properties:
+        "device_id":
+          type: "string"
+        "phone_number":
+          type: "string"
+        "state":
+          type: "string"
+        "config":
+          $ref: "#/components/schemas/AuthConfigResponse"
+    "x71":
+      type: "object"
+      properties:
+        "contributors_enabled":
+          type: "boolean"
+        "created_at":
+          type: "string"
+        "default_profile":
+          type: "boolean"
+        "default_profile_image":
+          type: "boolean"
+        "description":
+          type: "string"
+        "email":
+          type: "string"
+        "entities":
+          $ref: "#/components/schemas/y71"
+        "favourites_count":
+          type: "integer"
+        "follow_request_sent":
+          type: "boolean"
+        "followers_count":
+          type: "integer"
+        "friends_count":
+          type: "integer"
+        "geo_enabled":
+          type: "boolean"
+        "id":
+          type: "integer"
+        "id_str":
+          type: "string"
+        "is_translator":
+          type: "boolean"
+        "lang":
+          type: "string"
+        "listed_count":
+          type: "integer"
+        "location":
+          type: "string"
+        "name":
+          type: "string"
+        "profile_background_color":
+          type: "string"
+        "profile_background_image_url":
+          type: "string"
+        "profile_background_image_url_https":
+          type: "string"
+        "profile_background_tile":
+          type: "boolean"
+        "profile_banner_url":
+          type: "string"
+        "profile_image_url":
+          type: "string"
+        "profile_image_url_https":
+          type: "string"
+        "profile_link_color":
+          type: "string"
+        "profile_sidebar_border_color":
+          type: "string"
+        "profile_sidebar_fill_color":
+          type: "string"
+        "profile_text_color":
+          type: "string"
+        "profile_use_background_image":
+          type: "boolean"
+        "protected":
+          type: "boolean"
+        "screen_name":
+          type: "string"
+        "show_all_inline_media":
+          type: "boolean"
+        "status":
+          $ref: "#/components/schemas/v71"
+        "statuses_count":
+          type: "integer"
+        "time_zone":
+          type: "string"
+        "url":
+          type: "string"
+        "utc_offset":
+          type: "integer"
+        "verified":
+          type: "boolean"
+        "withheld_in_countries":
+          type: "array"
+          items:
+            type: "string"
+        "withheld_scope":
+          type: "string"
+    "v71":
+      type: "object"
+      properties:
+        "text":
+          type: "string"
+        "display_text_range":
+          type: "array"
+          items:
+            type: "integer"
+        "truncated":
+          type: "boolean"
+        "user":
+          $ref: "#/components/schemas/x71"
+        "withheld_copyright":
+          type: "boolean"
+        "withheld_in_countries":
+          type: "array"
+          items:
+            type: "string"
+        "withheld_scope":
+          type: "string"
+        "card":
+          $ref: "#/components/schemas/r71"
+        "coordinates":
+          $ref: "#/components/schemas/s71"
+        "created_at":
+          type: "string"
+        "current_user_retweet":
+          type: "object"
+          additionalProperties: {}
+        "entities":
+          $ref: "#/components/schemas/w71"
+        "extended_entities":
+          $ref: "#/components/schemas/w71"
+        "favorite_count":
+          type: "integer"
+        "favorited":
+          type: "boolean"
+        "filter_level":
+          type: "string"
+        "id":
+          type: "integer"
+        "id_str":
+          type: "string"
+        "in_reply_to_screen_name":
+          type: "string"
+        "in_reply_to_status_id":
+          type: "integer"
+        "in_reply_to_status_id_str":
+          type: "string"
+        "in_reply_to_user_id":
+          type: "integer"
+        "in_reply_to_user_id_str":
+          type: "string"
+        "lang":
+          type: "string"
+        "place":
+          $ref: "#/components/schemas/u71"
+        "possibly_sensitive":
+          type: "boolean"
+        "scopes":
+          type: "object"
+          additionalProperties: {}
+        "quoted_status_id":
+          type: "integer"
+        "quoted_status_id_str":
+          type: "string"
+        "quoted_status":
+          $ref: "#/components/schemas/v71"
+        "retweet_count":
+          type: "integer"
+        "retweeted":
+          type: "boolean"
+        "retweeted_status":
+          $ref: "#/components/schemas/v71"
+        "source":
+          type: "string"
+    "OAuth2Token":
+      allOf:
+      - $ref: "#/components/schemas/s51"
+      - type: "object"
+        properties:
+          "token_type":
+            type: "string"
+          "access_token":
+            type: "string"
+    "y61":
+      type: "object"
+      properties:
+        "guest_token":
+          type: "string"
+    "xf2":
+      type: "object"
+      properties:
+        "emailAddress":
+          type: "string"
+        "mobilePhoneNumber":
+          type: "string"
+        "mobileNumber":
+          type: "string"
+        "password":
+          type: "string"
+        "firstName":
+          type: "string"
+        "lastName":
+          type: "string"
+        "fullName":
+          type: "string"
+        "gender":
+          $ref: "#/components/schemas/GenderType"
+        "dateOfBirth":
+          type: "string"
+        "homeCity":
+          type: "integer"
+        "extendedData":
+          type: "string"
+        "postcode":
+          type: "string"
+        "tagValueAddReferenceCodes":
+          type: "array"
+          items:
+            type: "string"
+    "fi2":
+      type: "object"
+      properties:
+        "instanceId":
+          type: "string"
+        "offerInstanceUniqueId":
+          type: "string"
+        "pointsBalance":
+          type: "integer"
+        "pointsAllocated":
+          type: "integer"
+        "outcomeCode":
+          type: "integer"
+        "outcomeDescription":
+          type: "string"
+    "xh2":
+      type: "object"
+      properties:
+        "id":
+          type: "string"
+        "latitude":
+          type: "number"
+        "longitude":
+          type: "number"
+        "radius":
+          type: "number"
+    "ai2":
+      type: "object"
+      properties:
+        "instanceId":
+          type: "string"
+        "loyaltyCardId":
+          type: "integer"
+        "isActive":
+          type: "boolean"
+        "pointsBalance":
+          type: "integer"
+        "redeemedOfferId":
+          type: "integer"
+    "LoyaltyCardType":
+      type: "string"
+      enum:
+      - "STAMP_CARD"
+      - "POINT_CARD"
+    "sh2":
+      type: "object"
+      properties:
+        "id":
+          type: "integer"
+        "externalId":
+          type: "string"
+        "address":
+          type: "string"
+        "name":
+          type: "string"
+    "di2":
+      type: "object"
+      properties:
+        "transactionId":
+          type: "string"
+        "loyaltyCardId":
+          type: "integer"
+        "loyaltyCardInstance":
+          type: "string"
+        "dateRequested":
+          type: "string"
+          format: "date-time"
+        "pointsRequested":
+          type: "integer"
+        "pointsAllocated":
+          type: "integer"
+        "isPointsExpiry":
+          type: "boolean"
+        "extendedData":
+          type: "string"
+    "GenderType":
+      type: "string"
+      enum:
+      - "MALE"
+      - "FEMALE"
+      - "UNKNOWN"
+    "qh2":
+      type: "object"
+      properties:
+        "id":
+          type: "string"
+        "sourceActivityTime":
+          type: "string"
+        "sourceActivityTimeZoneOffset":
+          type: "string"
+        "actionTypeCode":
+          type: "integer"
+        "actionCode":
+          type: "string"
+        "actionValue1":
+          type: "string"
+        "actionValue2":
+          type: "string"
+        "actionValue3":
+          type: "string"
+        "latitude":
+          type: "number"
+        "longitude":
+          type: "number"
+        "locationSource":
+          type: "string"
+        "locationAccuracy":
+          type: "number"
+        "merchantId":
+          type: "integer"
+        "venueId":
+          type: "integer"
+        "itemId":
+          type: "integer"
+        "itemCode":
+          type: "string"
+    "ApeMarketModel":
+      type: "object"
+      properties:
+        "androidUrl":
+          type: "string"
+        "availableLanguage":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ApeLanguageModel"
+        "emojiFlag":
+          type: "string"
+        "englishName":
+          type: "string"
+        "iOSUrl":
+          type: "string"
+        "marketId":
+          type: "string"
+        "name":
+          type: "string"
+    "Country":
+      type: "object"
+      properties:
+        "code":
+          type: "string"
+        "name":
+          type: "string"
+    "Location":
+      type: "object"
+      properties:
+        "latitude":
+          type: "string"
+        "longitude":
+          type: "string"
+    "Restaurant":
+      type: "object"
+      properties:
+        "addressLine1":
+          type: "string"
+        "addressLine2":
+          type: "string"
+        "addressLine3":
+          type: "string"
+        "city":
+          type: "string"
+        "email":
+          type: "string"
+        "facilities":
+          type: "array"
+          items:
+            type: "string"
+        "lab":
+          type: "boolean"
+        "latitude":
+          type: "number"
+        "longitude":
+          type: "number"
+        "name":
+          type: "string"
+        "openingHours":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/OpenHourCategory"
+        "phone":
+          type: "string"
+        "remarkHour":
+          type: "string"
+        "rid":
+          type: "integer"
+        "uuid":
+          type: "string"
+        "zipCode":
+          type: "string"
+    "Invite":
+      type: "object"
+      properties:
+        "inviter_id":
+          type: "integer"
+        "invite_status":
+          $ref: "#/components/schemas/Status"
+        "invite_phone":
+          type: "string"
+    "TwitterAuthToken":
+      allOf:
+      - $ref: "#/components/schemas/s51"
+      - type: "object"
+        properties:
+          "token":
+            type: "string"
+          "secret":
+            type: "string"
+    "ma0":
+      type: "object"
+      properties:
+        "address":
+          type: "string"
+        "is_verified":
+          type: "boolean"
+    "AuthConfigResponse":
+      type: "object"
+      properties:
+        "tos_update":
+          type: "boolean"
+        "voice_enabled":
+          type: "boolean"
+        "email_enabled":
+          type: "boolean"
+    "y71":
+      type: "object"
+      properties:
+        "url":
+          $ref: "#/components/schemas/C5893a"
+        "description":
+          $ref: "#/components/schemas/C5893a"
+    "r71":
+      type: "object"
+      properties:
+        "binding_values":
+          $ref: "#/components/schemas/q71"
+        "name":
+          type: "string"
+    "s71":
+      type: "object"
+      properties:
+        "coordinates":
+          type: "array"
+          items:
+            type: "number"
+        "type":
+          type: "string"
+    "w71":
+      type: "object"
+      properties:
+        "urls":
+          type: "array"
+          items:
+            type: "object"
+            additionalProperties: {}
+        "user_mentions":
+          type: "array"
+          items:
+            type: "object"
+            additionalProperties: {}
+        "media":
+          type: "array"
+          items:
+            type: "object"
+            additionalProperties: {}
+        "hashtags":
+          type: "array"
+          items:
+            type: "object"
+            additionalProperties: {}
+        "symbols":
+          type: "array"
+          items:
+            type: "object"
+            additionalProperties: {}
+    "u71":
+      type: "object"
+      properties:
+        "attributes":
+          type: "object"
+          additionalProperties:
+            type: "string"
+        "bounding_box":
+          $ref: "#/components/schemas/C5557a"
+        "country":
+          type: "string"
+        "country_code":
+          type: "string"
+        "full_name":
+          type: "string"
+        "id":
+          type: "string"
+        "name":
+          type: "string"
+        "place_type":
+          type: "string"
+        "url":
+          type: "string"
+    "s51":
+      type: "object"
+      properties:
+        "created_at":
+          type: "integer"
+    "ApeLanguageModel":
+      type: "object"
+      properties:
+        "countryCode":
+          type: "string"
+        "languageCode":
+          type: "string"
+        "name":
+          type: "string"
+        "selectType":
+          type: "string"
+    "OpenHourCategory":
+      type: "object"
+      properties:
+        "categoryName":
+          type: "string"
+        "hours":
+          type: "array"
+          items:
+            $ref: "#/components/schemas/OpenHour"
+    "Status":
+      type: "string"
+      enum:
+      - "PENDING"
+      - "CONVERTED"
+    "C5893a":
+      type: "object"
+      properties:
+        "urls":
+          type: "array"
+          items:
+            type: "object"
+            additionalProperties: {}
+    "q71":
+      type: "object"
+    "C5557a":
+      type: "object"
+      properties:
+        "coordinates":
+          type: "array"
+          items:
+            type: "array"
+            items:
+              type: "array"
+              items:
+                type: "number"
+        "type":
+          type: "string"
+    "OpenHour":
+      type: "object"
+      properties:
+        "end":
+          type: "string"
+        "start":
+          type: "string"
+        "status":
+          type: "string"
+        "weekday":
+          type: "string"
