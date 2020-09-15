@@ -11,10 +11,10 @@ interface SwaggerWithChildren {
 class SwaggerSchema(val openapi: String) : SwaggerWithChildren {
 
 
-    var info: SchemaInfo = SchemaInfo("Extracted from retrofit", "ddd", "1.0.0")
+    var info: SchemaInfo = SchemaInfo("???", "Extracted from retrofit", "1.0.0")
 
     @Serializable
-    class SchemaInfo(val title: String, val description: String, val version: String) : SwaggerWithChildren {
+    class SchemaInfo(var title: String, val description: String, val version: String) : SwaggerWithChildren {
         override fun children(): List<SwaggerWithChildren> {
             return listOf()
         }

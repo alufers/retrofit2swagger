@@ -116,7 +116,9 @@ class ActiveServerDetector(private val sourceFilesManager: SourceFilesManager) {
                     }.map { opEntry -> opEntry.value }
                 }
 
-                operationsOwnedByInterface.forEach { it.servers = mutableListOf(SwaggerSchema.ServerSpec(url)) }
+                operationsOwnedByInterface.forEach {
+                    it.servers = mutableListOf(SwaggerSchema.ServerSpec(url.trimEnd('/')))
+                }
 
                 return true
             }
