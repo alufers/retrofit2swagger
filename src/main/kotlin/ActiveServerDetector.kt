@@ -390,6 +390,10 @@ class ActiveServerDetector(private val sourceFilesManager: SourceFilesManager) {
 
         }
 
+    }
+
+    fun printProbableServerURLs() {
+
         probableAPIUrls.entries.sortedByDescending { it.value }.forEach {
 //            Log.debug(
 //                "HOST: " + URL(it.key).host

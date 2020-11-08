@@ -8,15 +8,30 @@ import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeS
 import kotlinx.cli.*
 import java.io.File
 
-class ExtractSubcommand: Subcommand("extract", "Extracts API endpoints from java sourcecode to an OpenAPI schema file") {
+class ExtractSubcommand :
+    Subcommand("extract", "Extracts API endpoints from java sourcecode to an OpenAPI schema file") {
     val output by option(ArgType.String, "output", "o", "Output file")
-    val enableActiveServerDetection by option(ArgType.Boolean, "enable-active-server-detection", "a", "Enable active server detection (detect the root server URLs by making real requests)")
-    val decompiledAppDir by argument(ArgType.String, "app-dir", description = "The directory where the app was decompiled with JADX")
+    val enableActiveServerDetection by option(
+        ArgType.Boolean,
+        "enable-active-server-detection",
+        "a",
+        "Enable active server detection (detect the root server URLs by making real requests)"
+    )
+    var decompiledAppDir by argument(
+        ArgType.String,
+        "app-dir",
+        description = "The directory where the app was decompiled with JADX"
+    )
+
     override fun execute() {
-        setUpTypeSolvers(decompiledAppDir)
+        if(decompiledAppDir.endsWith("sources") || decompiledAppDir.endsWith("sources/")) {
+            decompiledAppDir = File(decompiledAppDir).parentFile.absolutePath
+        }
+        val sourcesPath = File(decompiledAppDir).resolve("sources").absolutePath
+        setUpTypeSolvers( sourcesPath)
 
         val sfManager = SourceFilesManager()
-        sfManager.loadFilePaths(decompiledAppDir)
+        sfManager.loadFilePaths(sourcesPath)
 
         val annotationLocator = RetrofitAnnotationLocator(sfManager)
         annotationLocator.locateRetrofitAnnotations()
@@ -37,32 +52,37 @@ class ExtractSubcommand: Subcommand("extract", "Extracts API endpoints from java
             extractor.extractEndpoints()
             totalEndpoints += extractor.endpointsCount
             totalInterfaces += extractor.interfacesCount
-            Log.progress(totalInterfaces.toDouble() + 1, apiFiles.size.toDouble(), "Processing retrofit API files", "files")
+            Log.progress(
+                totalInterfaces.toDouble() + 1,
+                apiFiles.size.toDouble(),
+                "Processing retrofit API files",
+                "files"
+            )
         }
         println()
         Log.info("Extracted %d endpoints from %d retrofit interfaces".format(totalEndpoints, totalInterfaces))
         typeProcessor.extractDependencyTypes(schema)
-        if(totalEndpoints <= 0) {
+        if (totalEndpoints <= 0) {
             Log.error("No endpoints found!")
             kotlin.system.exitProcess(1);
             return
         }
-        if(enableActiveServerDetection == true) {
+        if (enableActiveServerDetection == true) {
             ActiveServerDetector(sfManager).detectServers(schema)
         } else {
             Log.info("TIP: You can enable active server detection by passing the --enable-active-server-detection (-a for short) so that you get full URLs, not just the paths.")
             Log.warn("This will however make a fair amount of requests the the servers mentioned in the apps source code. Use with caution.")
         }
 
-        val friendlyAppName =  decompiledAppDir.split("/").reversed().first { it != "sources" }
-        schema.info.title = friendlyAppName + " [retrofit2swagger]]"
+        val friendlyAppName = decompiledAppDir.split("/").reversed().first { it != "sources" }
+        schema.info.title = friendlyAppName + " [retrofit2swagger]"
         val result = Yaml(configuration = YamlConfiguration(encodeDefaults = false)).encodeToString(
             SwaggerSchema.serializer(),
             schema
         )
 
 
-        val outPath = friendlyAppName + "-out.swagger.yml"
+        val outPath = if (output == null || output!!.isEmpty()) "$friendlyAppName-out.swagger.yml" else output
         Log.info("Writing output to: %s".format(outPath))
         File(outPath).writeText(result)
     }
