@@ -27,9 +27,10 @@ class AnnotationUntil {
                 else -> {
 
                     Log.warn(
-                        "[WARN] Found an annotation which is not a SingleMemberAnnotationExpr or a NormalAnnotationExpr, but a %s: %s".format(
+                        "Found an annotation which is not a SingleMemberAnnotationExpr or a NormalAnnotationExpr, but a %s: %s in %s".format(
                             annotation.javaClass.canonicalName,
-                            annotation.toString()
+                            annotation.toString(),
+                            Util.getNodeFilename(annotation)
                         )
                     )
                 }

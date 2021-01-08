@@ -99,7 +99,7 @@ class ActiveServerDetector(private val sourceFilesManager: SourceFilesManager) {
                         garbledStatus
                     )
                 )
-                addheuristicPenality(url, 2.0)
+                heuristicPenalty(url, 2.0)
                 break
             }
             val goodStatus = makeProbeRequest(
@@ -162,10 +162,10 @@ class ActiveServerDetector(private val sourceFilesManager: SourceFilesManager) {
 
                     val body: String = IOUtils.toString(ipStream, encoding)
                     if (body.split("<script").size > 7) { // probably a big webpage
-                        addheuristicPenality(baseServerUrl, 5.0)
+                        heuristicPenalty(baseServerUrl, 5.0)
                     }
                     if (body.split("<div").size > 80) { // probably a big webpage
-                        addheuristicPenality(baseServerUrl, 5.0)
+                        heuristicPenalty(baseServerUrl, 5.0)
                     }
                 }
                 return responseCode
@@ -174,20 +174,20 @@ class ActiveServerDetector(private val sourceFilesManager: SourceFilesManager) {
             Log.http("%s %s -- %s".format(method.toUpperCase(), url, e.message))
         } catch (e: UnknownHostException) {
             Log.http("%s %s -- %s".format(method.toUpperCase(), url, e.message))
-            addheuristicPenality(baseServerUrl, 20.0)
+            heuristicPenalty(baseServerUrl, 20.0)
         }
         return 0
     }
 
-    private fun addheuristicPenality(baseServerUrl: String?, penality: Double) {
+    private fun heuristicPenalty(baseServerUrl: String?, penalty: Double) {
         if (baseServerUrl != null && probableAPIUrls.containsKey(baseServerUrl)) {
             Log.warn(
                 "Adding heuristic penalty of %s for %s".format(
-                    penality.toString(),
+                    penalty.toString(),
                     baseServerUrl
                 )
             )
-            probableAPIUrls[baseServerUrl] = probableAPIUrls[baseServerUrl]!! - penality
+            probableAPIUrls[baseServerUrl] = probableAPIUrls[baseServerUrl]!! - penalty
         }
     }
 

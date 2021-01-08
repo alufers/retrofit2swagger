@@ -5,6 +5,7 @@ import com.github.javaparser.ast.expr.*
 import com.github.javaparser.ast.stmt.IfStmt
 import com.github.javaparser.ast.visitor.GenericVisitorAdapter
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter
+import com.github.javaparser.resolution.UnsolvedSymbolException
 import com.github.javaparser.resolution.types.ResolvedType
 import java.lang.Exception
 
@@ -38,7 +39,7 @@ class RetrofitAnnotationLocator(val smf: SourceFilesManager) {
 
     fun locateRetrofitAnnotations() {
         //TODO: add support for both retrofit 2 and and retrofit 1 (change this to use common types locator)
-        val requestFactoryFilePath = smf.getFilePathWithStringInside("\"Only one encoding annotation is allowed.\"")
+        val requestFactoryFilePath = smf.getFilesWithStringsInside(arrayListOf("\"Only one encoding annotation is allowed.\"", "\"@Headers annotation is empty.\"")).firstOrNull()
             ?: throw Exception("Failed to locate retrofit RequestFactory")
         val ast = requestFactoryFilePath.ast
 
@@ -149,7 +150,10 @@ class RetrofitAnnotationLocator(val smf: SourceFilesManager) {
                     val firstArg = n.arguments.first.get()
                     val firstArgAsString = EvaluatorUtil.evalToString(firstArg)
                     if (firstArgAsString != null && HTTP_METHODS.contains(firstArgAsString.toUpperCase())) {
-                        super.visit(n, firstArgAsString) // go inside of this call, a mapping will be created when we find a Cast
+                        super.visit(
+                            n,
+                            firstArgAsString
+                        ) // go inside of this call, a mapping will be created when we find a Cast
                         return
                     } else if (firstArg.toString() == "HttpRequest.METHOD_OPTIONS") {
                         Log.debug("Detected edge-case for HttpRequest.METHOD_OPTIONS")
@@ -175,7 +179,17 @@ class RetrofitAnnotationLocator(val smf: SourceFilesManager) {
 
             override fun visit(n: CastExpr, arg: String?) {
                 if (arg != null) {
-                    addAnnotationSymbol(arg, n.type.resolve())
+                    try {
+                        addAnnotationSymbol(arg, n.type.resolve())
+
+                    } catch (e: UnsolvedSymbolException) {
+                        Log.warn(
+                            "Failed to add annotation symbol %s, may miss some endpoints later on: %s ".format(
+                                arg,
+                                e.message
+                            )
+                        )
+                    }
                     super.visit(n, null)
                     return
                 }
@@ -198,7 +212,7 @@ class RetrofitAnnotationLocator(val smf: SourceFilesManager) {
     private fun findParseMethodAnnotation(ast: CompilationUnit): MethodDeclaration {
 
         val parseMethodAnnotationMethodDecl =
-            findMethodWithStringLiteral(ast, "Only one encoding annotation is allowed.")
+            findMethodWithStringLiterals(ast, arrayListOf("Only one encoding annotation is allowed.", "@Headers annotation is empty."))
                 ?: throw Exception("parseMethodAnnotation from retrofit not found")
         Log.info("Found parseMethodAnnotation: %s".format(parseMethodAnnotationMethodDecl!!.declarationAsString))
         return parseMethodAnnotationMethodDecl!!
@@ -206,9 +220,10 @@ class RetrofitAnnotationLocator(val smf: SourceFilesManager) {
 
     private fun findParseParameterAnnotation(ast: CompilationUnit): MethodDeclaration {
 
+        // we want to find a method from retrofit so we can get the FQNs of the method annotations
         val parseParameterAnnotationMethodDecl =
             findMethodWithStringLiteral(ast, "A @Path parameter must not come after a @Query.")
-                ?: throw Exception("parseMethodAnnotation from retrofit not found")
+                ?: throw Exception("parseMethodAnnotation method from retrofit not found in class %s. Code too obfuscated?".format(ast.storage.get().path))
         Log.info("Found parseParameterAnnotation: %s".format(parseParameterAnnotationMethodDecl!!.declarationAsString))
         return parseParameterAnnotationMethodDecl!!
     }
@@ -223,6 +238,26 @@ class RetrofitAnnotationLocator(val smf: SourceFilesManager) {
 
             override fun visit(n: StringLiteralExpr, d: MethodDeclaration?) {
                 if (n.value == literalValue) {
+                    theMethod = d
+                }
+                super.visit(n, d)
+            }
+        }.visit(ast, null)
+        return theMethod
+    }
+
+    /**
+     * Returns the method if it contains eny of the passed strings
+     */
+    private fun findMethodWithStringLiterals(ast: CompilationUnit, literalValues: List<String>): MethodDeclaration? {
+        var theMethod: MethodDeclaration? = null
+        object : VoidVisitorAdapter<MethodDeclaration?>() {
+            override fun visit(n: MethodDeclaration, d: MethodDeclaration?) {
+                super.visit(n, n)
+            }
+
+            override fun visit(n: StringLiteralExpr, d: MethodDeclaration?) {
+                if (literalValues.contains(n.value)) {
                     theMethod = d
                 }
                 super.visit(n, d)

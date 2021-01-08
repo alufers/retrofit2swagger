@@ -11,6 +11,20 @@ val commonTypeSignatures: List<CommonTypeWrappersLocator.Signature> = listOf(
     ),
     CommonTypeWrappersLocator.Signature(
         kinds = listOf(CommonTypeWrappersLocator.CommonTypeKind.TRANSPARENT_WRAPPER),
+        friendlyName = "WeirdAndOldObservable",
+        sourceLibrary = "rxjava",
+        probableRawStrings = mapOf("new ActionSubscriber(" to 5.0),
+        probableStringLiterals = mapOf(
+            "] and then again while trying to pass to onError." to 15.0,
+            "start + count can not exceed Integer.MAX_VALUE" to 10.0,
+            "capacityHint > 0 required but it was " to 10.0,
+            "Error occurred attempting to subscribe [" to 5.0,
+            "onNext can not be null" to 2.0,
+            "onSubscribe function can not be null." to 2.0,
+        ),
+    ),
+    CommonTypeWrappersLocator.Signature(
+        kinds = listOf(CommonTypeWrappersLocator.CommonTypeKind.TRANSPARENT_WRAPPER),
         friendlyName = "Completable",
         sourceLibrary = "rxjava",
         probableStringLiterals = mapOf(

@@ -1,3 +1,6 @@
+import com.github.javaparser.ast.CompilationUnit
+import com.github.javaparser.ast.Node
+
 class Util {
     companion object {
 
@@ -47,6 +50,16 @@ class Util {
                 6 -> "null"
                 else -> randomString()
             }
+        }
+
+        fun getNodeFilename(node: Node?): String {
+            if (node == null) {
+                return "<unknown>"
+            }
+            if (node is CompilationUnit) {
+                return node.storage.unwrap()?.path.toString() ?: "<unknown path>";
+            }
+            return getNodeFilename(node.parentNode.unwrap())
         }
     }
 }

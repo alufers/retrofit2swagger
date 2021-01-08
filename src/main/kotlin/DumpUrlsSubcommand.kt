@@ -7,6 +7,11 @@ class DumpUrlsSubcommand :Subcommand("dump-urls", "lists all URLs found in the a
     override fun execute() {
         val sfManager = SourceFilesManager()
         sfManager.loadFilePaths(decompiledAppDir)
+        val detector = ActiveServerDetector(sfManager)
+        detector.extractProbableServerURLs()
+        detector.probableAPIUrls.entries.sortedByDescending { it.value }.forEach {
+            println(it.key)
+        }
     }
 
 }
